@@ -1,0 +1,24 @@
+extends layout
+
+block content
+	h1. 
+		Movies Page
+	ul
+		each movie, i in movielist
+			li
+				a(href="#" id="#{movie.id}")= movie.title
+				a#deleteMoive(href="/movies/#{movie.id}", class="removeBtn") delete
+	form#formAddMoive(name="addmovie",method="post",action="/addMovie")
+		input#inputMovieTitle(type="text", placeholder="title", name="title")
+		br
+		input#inputMovieYear(type="text", placeholder="year", name="year")
+		br
+		input#inputMovieGenre(type="text", placeholder="genre", name="genre")
+		br
+		button#btnSubmit(type="submit") submit
+	script.
+		$('li').on('click', '.removeBtn', function(e) {
+			var x = $(this).closest('a');
+			x.remove();
+		});
+		$("<h1>test passes</h1>").appendTo("body");
