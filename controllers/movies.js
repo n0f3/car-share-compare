@@ -41,36 +41,13 @@ exports.deleteMovies = function(req, res, next) {
     var movieId = req.params.id;
     Movie.remove({"_id": movieId}, function(err, movie) {
         if( err ){ 
-            return next( err ); 
+            console.log('Error Deleting: ' + err);
+            //return next( err ); 
         } else
         console.log('Deleted ' + movieId);
-        res.redirect('movies');
+        res.redirect('/movies');
     });
 };
-
-/*exports.deleteMovies = function(req, res, next) {
-    console.log('in delete');
-    Movie.findById(req.params.id, function(movie, err) {
-        console.log("Params " + req.params.id + " " + movie);
-        movie.remove(function(movie, err) {
-            console.log('Deleted');
-            if( err ) return next( err );
-            res.redirect('movies');
-        });
-    });
-};*/
-
-/*exports.deleteMovies = function(req, res) {
-    console.log('in delete');
-    var id = req.params.id;
-    //var mid = req.body.id;
-    Movie.remove({
-        '_id': id
-    }, function(results) {
-        console.log('Deleted');
-        return res.send(results);
-    });
-};*/
 
 exports.importMovies = function(req, res) {
     Movie.create({
