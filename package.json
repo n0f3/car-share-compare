@@ -8,6 +8,7 @@
     "express": "4.x",
     "jade": "^1.11.0",
     "jquery": "^2.2.1",
+    "mongoose": "4.4.6",
     "morgan": "^1.7.0"
   },
   "devDependencies": {
