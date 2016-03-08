@@ -8,6 +8,8 @@ var path = require('path');
 var fs = require('fs');
 var $ = require('jquery');
 
+app.set('port', (process.env.PORT || 5000));
+
 var mongoUri = 'mongodb://127.0.0.1/MovieApp';
 mongoose.connect(mongoUri);
 var db = mongoose.connection;
@@ -15,8 +17,9 @@ db.on('error', function() {
 	throw new Error('unable to connect to database at ' + mongoUri);
 });
 
-// set public path
-app.use(express.static(__dirname + '/public'));
+// set public 
+app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(__dirname + '/public'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,9 +38,36 @@ app.use(bodyParser.urlencoded({ extended: false }));
 	res.send('Hello World from Express!');
 });*/
 
+/// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+    	console.log("in error message");
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
+    });
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
+});
+
+
 //require('./models/musician')
 require('./models/movie')
 require('./routes')(app);
 
-app.listen(8080);
-console.log('Listening on port 8080');
+app.listen(app.get('port'), function(){
+    console.log('Node app is running on port', app.get('port'));
+});

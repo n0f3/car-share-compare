@@ -9,6 +9,7 @@ module.exports = function(app){
     app.get('/import', musicians.import);*/
 
     var movies = require('./controllers/movies');
+    app.get('/', movies.findAllMovies);
     app.get('/movies', movies.findAllMovies);
     app.post('/addmovie', movies.addMovie);
     app.get('/movies/:id', movies.deleteMovies);
