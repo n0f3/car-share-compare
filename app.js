@@ -66,7 +66,7 @@ app.use(function(err, req, res, next) {
 
 
 //require('./models/musician')
-require('./models/movie')
+require('./models/Movie')
 require('./routes')(app);
 
 app.listen(app.get('port'), function(){

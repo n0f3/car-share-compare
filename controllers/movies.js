@@ -65,6 +65,6 @@ exports.importMovies = function(req, res) {
         },
         function(err) {
             if (err) return console.log(err);
-            return res.send(202);
+            return res.sendStatus(202);
         });
 };
