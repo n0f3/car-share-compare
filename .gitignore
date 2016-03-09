@@ -51,4 +51,3 @@ Temporary Items
 /node_modules
 /models/**
 !models/Movies.js
-*.txt
