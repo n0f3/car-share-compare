@@ -10,7 +10,8 @@ var $ = require('jquery');
 
 app.set('port', (process.env.PORT || 5000));
 
-//var mongoUri = 'mongodb://127.0.0.1/MovieApp';
+//comment this line and use the below connection string when connecting with heroku db
+var localMongoUri = 'mongodb://127.0.0.1/MovieApp';
 var mongoUri = 'mongodb://heroku_5sv4k7jl:7rmbrhjhskfd620emm367u7o5j@ds023478.mlab.com:23478/heroku_5sv4k7jl';
 mongoose.connect(mongoUri);
 var db = mongoose.connection;
@@ -29,15 +30,6 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-//app.use(express.bodyParser());
-
-/*app.configure(function(){
-  app.use(express.bodyParser());
-});*/
-/*app.get('/', function(req, res){
-	res.send('Hello World from Express!');
-});*/
 
 /// error handlers
 
@@ -64,8 +56,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-
-//require('./models/musician')
+//require models and routes files
 require('./models/Movie')
 require('./routes')(app);
 

@@ -1,24 +1,41 @@
 extends layout
 
 block content
-	h1. 
-		Movies Page
-	ul
-		each movie, i in movielist
-			li
-				a(href="#" id="#{movie.id}")= movie.title
-				a#deleteMoive(href="/movies/#{movie.id}", class="removeBtn") delete
-	form#formAddMoive(name="addmovie",method="post",action="/addMovie")
-		input#inputMovieTitle(type="text", placeholder="title", name="title")
-		br
-		input#inputMovieYear(type="text", placeholder="year", name="year")
-		br
-		input#inputMovieGenre(type="text", placeholder="genre", name="genre")
-		br
-		button#btnSubmit(type="submit") submit
-	script.
-		$('li').on('click', '.removeBtn', function(e) {
-			var x = $(this).closest('a');
-			x.remove();
-		});
-		$("<h1>test passes</h1>").appendTo("body");
+	div.container
+		div.page-header
+			h1 Movies Page
+		div.row
+			div.col-md-8
+				ul
+					each movie, i in movielist
+						li
+							a(href="#" id="#{movie.id}")= movie.title
+								div.hover-btn
+									a#deleteMoive(href="/movies/#{movie.id}", type="button", data-dismiss="alert", class="close")
+										span(aria-hidden="true", style="color:red; margin-right:150px;") x
+										span(class="sr-only") Close
+			div.col-md-4
+				h1 Something here
+				p text text text text text
+		div.row
+			div.col-md-4
+				form#formAddMoive(name="addmovie",method="post",action="/addMovie")
+					div.form-group
+						label(for="text") Title:
+						br
+						input#inputMovieTitle(type="text", placeholder="title", name="title")
+						br
+						label(for="number") Year:
+						br 
+						input#inputMovieYear(type="text", placeholder="year", name="year")
+						br
+						label(for="text") Genre:
+						br
+						input#inputMovieGenre(type="text", placeholder="genre", name="genre")
+						br
+						button#btnSubmit(type="submit", class="btn btn-primary btn-lg") submit
+				script.
+					$('li').on('click', '.removeBtn', function(e) {
+						var x = $(this).closest('a');
+						x.remove();
+					});

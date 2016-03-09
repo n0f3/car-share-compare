@@ -2,6 +2,10 @@
 var mongoose = require('mongoose');
 Movie = mongoose.model('Movie');
 
+exports.getIndex = function(req, res) {
+    return res.render('index');
+};
+
 exports.findAllMovies = function(req, res) {
     Movie.find({}, function(err, results) {
         return res.render('movies', {
