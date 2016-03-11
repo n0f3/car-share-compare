@@ -4,20 +4,30 @@ block content
 	div.container
 		div.page-header
 			h1 Movies Page
+			a(href="/", role="button" class="btn btn-secondary btn-sm") Home 
+			button(class="btn btn-secondary btn-sm") Next
 		div.row
 			div.col-md-8
-				ul
-					each movie, i in movielist
-						li
-							a(href="#" id="#{movie.id}")= movie.title
-								div.hover-btn
-									a#deleteMoive(href="/movies/#{movie.id}", type="button", data-dismiss="alert", class="close")
-										span(aria-hidden="true", style="color:red; margin-right:150px;") x
-										span(class="sr-only") Close
-			div.col-md-4
-				h1 Something here
-				p text text text text text
-		div.row
+				table(class="table table-hover")
+					thead
+						tr
+							th Titles
+							th Year
+							th Genre
+							th(style="text-align:right;") Remove
+								each movie, i in movielist
+									tr
+										td
+											a(href="#" id="#{movie.id}")= movie.title
+										td 
+											p(id="" )= movie.year
+										td
+											p(id="")= movie.genre
+										td
+											div.hover-btn
+											a#deleteMoive(href="/movies/#{movie.id}", type="button", data-dismiss="alert", class="close")
+												span(aria-hidden="true", style="color:red;") x
+												span(class="sr-only") Close
 			div.col-md-4
 				form#formAddMoive(name="addmovie",method="post",action="/addMovie")
 					div.form-group
@@ -34,6 +44,11 @@ block content
 						input#inputMovieGenre(type="text", placeholder="genre", name="genre")
 						br
 						button#btnSubmit(type="submit", class="btn btn-primary btn-lg") submit
+		div.row
+			div.col-md-4
+				h1 Try it out!
+				p Add a new movie using the form below
+
 				script.
 					$('li').on('click', '.removeBtn', function(e) {
 						var x = $(this).closest('a');

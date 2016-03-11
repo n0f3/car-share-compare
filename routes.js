@@ -10,9 +10,12 @@ module.exports = function(app){
 
     var movies = require('./controllers/movies');
     //app.get('/error', movies.getError);
+    //home page route
     app.get('/', movies.getIndex);
     app.get('/movies', movies.findAllMovies);
+    //add route
     app.post('/addmovie', movies.addMovie);
+    //delete route
     app.get('/movies/:id', movies.deleteMovies);
     app.get('/import/movies', movies.importMovies)
 }

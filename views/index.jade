@@ -1,7 +1,29 @@
 extends layout
 
 block content
-	h1 Index Page
-	div.navBar
-		h3
-			a(href="/movies" id="navLink") Movies Page
+	div.container
+		div.page-header
+			h1 Index Page
+			div.row
+				div.col-md-4
+					div.nav-bar
+						a(href="/movies" id="navLink") Movies Page
+						a(href="#" id="") Contact
+				div.col-md-4
+					div.nav-bar
+						a(href="/movies" id="navLink") Movies Page
+						a(href="#" id="") Contact
+				div.col-md-4
+					div.nav-bar-login
+						button(href="#" id="", class="btn btn-primary btn-lg") Login
+						button(href="#" id="", class="btn btn-secondary btn-lg") Register
+		div.row
+			div.col-md-4
+				div.body-col
+					h3 somthing test test
+			div.col-md-8
+				div.body-col
+					h3 somthing test test
+		div.row
+			div.col-md-4
+				h1 Body Content
