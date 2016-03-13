@@ -43,32 +43,50 @@ exports.deleteMovies = function(req, res, next) {
     console.log('in delete');
     //console.log("Params " + req.params.id);
     var movieId = req.params.id;
-    Movie.remove({"_id": movieId}, function(err, movie) {
-        if( err ){ 
+    Movie.remove({ "_id": movieId }, function(err, movie) {
+        if (err) {
             console.log('Error Deleting: ' + err);
             //return next( err ); 
         } else
-        console.log('Deleted ' + movieId);
+            console.log('Deleted ' + movieId);
         res.redirect('/movies');
     });
 };
 
-exports.importMovies = function(req, res) {
-    Movie.create({
-            "title": "Titanic",
-            "year": "1998",
-            "genre": "drama"
-        }, {
-            "title": "Pulp Fiction",
-            "year": "1999",
-            "genre": "action"
-        }, {
-            "title": "Avatar",
-            "year": "2012",
-            "genre": "fantasy"
-        },
-        function(err) {
-            if (err) return console.log(err);
-            return res.sendStatus(202);
+exports.delMovie = function(req, res) {
+    console.log('in imporved delete');
+    console.log(req.db);
+    /*var db = req.db;
+    var collection = db.get('movies');*/
+    console.log(req.params.id);
+    var movieId = req.params.id;
+    Movie.remove({
+        '_id': movieId
+    }, function(err) {
+        res.send((err === null) ? {
+            msg: ''
+        } : {
+            msg: 'error' + err
         });
+    });
+};
+
+exports.importMovies = function(req, res) {
+    /*   Movie.create({
+               "title": "Titanic",
+               "year": "1998",
+               "genre": "drama"
+           }, {
+               "title": "Pulp Fiction",
+               "year": "1999",
+               "genre": "action"
+           }, {
+               "title": "Avatar",
+               "year": "2012",
+               "genre": "fantasy"
+           },
+           function(err) {
+               if (err) return console.log(err);
+               return res.sendStatus(202);
+           });*/
 };

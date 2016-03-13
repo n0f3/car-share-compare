@@ -7,14 +7,39 @@ block content
 			a(href="/", role="button" class="btn btn-secondary btn-sm") Home 
 			button(class="btn btn-secondary btn-sm") Next
 		div.row
+			div.col-md-4
+				h2 Try it out!
+				p Add a new movie using the form below
+		div.row
+			form#formAddMoive(name="addmovie",method="post",action="/addMovie")
+				div(class="input-group")
+					div.col-md-3
+						label(for="text") Title:
+						br
+						input#inputMovieTitle(type="text", class="form-control", placeholder="Title", aria-describedby="sizing-addon1", name="title")
+					div.col-md-3
+						label(for="number") Year:
+						br 
+						input#inputMovieYear(type="text", class="form-control", placeholder="Year", aria-describedby="sizing-addon2", name="year")
+					div.col-md-3
+						label(for="text") Genre:
+						br
+						input#inputMovieGenre(type="text", class="form-control", placeholder="Genre", aria-describedby="sizing-addon3", name="genre")
+					div.col-md-3
+						span(style="visibility: hidden;") place
+						button#btnSubmit(onClick="formValidation();", type="submit", class="btn btn-primary btn-lg btn-block") submit
+		hr
+		div.row
 			div.col-md-8
-				table(class="table table-hover")
+				h2 Movie Table
+				table#movieTable(class="table table-hover")
 					thead
 						tr
 							th Titles
 							th Year
 							th Genre
 							th(style="text-align:right;") Remove
+								tbody#movielist
 								each movie, i in movielist
 									tr
 										td
@@ -25,32 +50,6 @@ block content
 											p(id="")= movie.genre
 										td
 											div.hover-btn
-											a#deleteMoive(href="/movies/#{movie.id}", type="button", data-dismiss="alert", class="close")
-												span(aria-hidden="true", style="color:red;") x
+											a#deleteMoive(href"#", rel="#{movie.id}" type="button", class="close")
+												span(class="glyphicon glyphicon-trash", aria-hidden="true", style="color:red;")
 												span(class="sr-only") Close
-			div.col-md-4
-				form#formAddMoive(name="addmovie",method="post",action="/addMovie")
-					div.form-group
-						label(for="text") Title:
-						br
-						input#inputMovieTitle(type="text", placeholder="title", name="title")
-						br
-						label(for="number") Year:
-						br 
-						input#inputMovieYear(type="text", placeholder="year", name="year")
-						br
-						label(for="text") Genre:
-						br
-						input#inputMovieGenre(type="text", placeholder="genre", name="genre")
-						br
-						button#btnSubmit(type="submit", class="btn btn-primary btn-lg") submit
-		div.row
-			div.col-md-4
-				h1 Try it out!
-				p Add a new movie using the form below
-
-				script.
-					$('li').on('click', '.removeBtn', function(e) {
-						var x = $(this).closest('a');
-						x.remove();
-					});

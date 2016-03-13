@@ -1,29 +1,44 @@
 extends layout
 
 block content
-	div.container
-		div.page-header
-			h1 Index Page
+	div(class="navbar navbar-default")
+		div.container
+			div.page-header
+				h1 Index Page
+			div.navbar-header
+				button(class="navbar-toggle collapsed", data-toggle="collapse", data-target="#bs-example-navbar-collapse-1", aria-expanded="false")
+					span(class="sr-only") Toggle Navigation
+					span(class="icon-bar")
+					span(class="icon-bar")
+					span(class="icon-bar")
+				a(class="navbar-brand", href="#") Brand
+			div(class="collapse navbar-collapse", id="bs-example-navbar-collapse-1")
+				ul(class="nav navbar-nav")
+					li(class="active")
+						a(href="/") Home 
+							span(class="sr-only") (current)
+					li
+						a(href="movies") Movies Page
+				ul(class="nav navbar-nav navbar-right")
+					li
+						div.nav-bar-login
+							button(href="#" id="", class="btn btn-secondary btn-lg") Register
+							button(href="#" id="", class="btn btn-primary btn-lg") Login
 			div.row
 				div.col-md-4
-					div.nav-bar
-						a(href="/movies" id="navLink") Movies Page
-						a(href="#" id="") Contact
+					div.body-col
+						h3 Lorem ipsum dolor sit amet
 				div.col-md-4
-					div.nav-bar
-						a(href="/movies" id="navLink") Movies Page
-						a(href="#" id="") Contact
+					div.body-col
+						h3 Lorem ipsum dolor sit amet
 				div.col-md-4
-					div.nav-bar-login
-						button(href="#" id="", class="btn btn-primary btn-lg") Login
-						button(href="#" id="", class="btn btn-secondary btn-lg") Register
-		div.row
-			div.col-md-4
-				div.body-col
-					h3 somthing test test
-			div.col-md-8
-				div.body-col
-					h3 somthing test test
-		div.row
-			div.col-md-4
-				h1 Body Content
+						h3 Lorem ipsum dolor sit amet
+			div.row
+				div.col-md-12
+					h2 Body Content
+					p.
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis consectetur turpis vitae condimentum. Nullam eu elementum elit, vel euismod massa. Sed nec volutpat ex, a varius odio. Nulla eu mauris at magna maximus imperdiet. Nullam nec consequat sapien, sed tempus ipsum. Nullam aliquet, leo sed dapibus accumsan, dui libero vehicula lorem, a laoreet mi lacus quis ex. Phasellus a dignissim quam. Curabitur sapien elit, pharetra eu ante at, vulputate varius purus. Sed sit amet nunc elementum, vehicula quam in, suscipit arcu. Cras a pretium nulla, sit amet pulvinar ipsum. Sed pretium arcu at urna hendrerit rhoncus. Vestibulum ultricies, urna ullamcorper dignissim rhoncus, neque enim euismod mauris, cursus tincidunt urna leo eu magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum feugiat tellus eget auctor interdum.
+					p.
+						Mauris fermentum est est, tincidunt suscipit metus commodo at. Pellentesque sit amet suscipit ligula, id bibendum dui. Proin congue nec mauris sed tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras cursus vehicula nunc, vitae pretium elit gravida vitae. Donec sed semper velit. In enim velit, porttitor sit amet lacus nec, semper molestie massa. Curabitur commodo ut purus pellentesque vestibulum. Proin sit amet urna imperdiet, porta dui eu, consectetur velit. Morbi congue feugiat neque, in pulvinar tortor tristique nec. Fusce mollis maximus est non gravida. Ut sed lacinia tellus. Phasellus est justo, tempor ac turpis eget, iaculis gravida nunc.
+					p.
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis consectetur turpis vitae condimentum. Nullam eu elementum elit, vel euismod massa. Sed nec volutpat ex, a varius odio. Nulla eu mauris at magna maximus imperdiet. Nullam nec consequat sapien, sed tempus ipsum. Nullam aliquet, leo sed dapibus accumsan, dui libero vehicula lorem, a laoreet mi lacus quis ex. Phasellus a dignissim quam. Curabitur sapien elit, pharetra eu ante at, vulputate varius purus. Sed sit amet nunc elementum, vehicula quam in, suscipit arcu. Cras a pretium nulla, sit amet pulvinar ipsum. Sed pretium arcu at urna hendrerit rhoncus. Vestibulum ultricies, urna ullamcorper dignissim rhoncus, neque enim euismod mauris, cursus tincidunt urna leo eu magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum feugiat tellus eget auctor interdum.
