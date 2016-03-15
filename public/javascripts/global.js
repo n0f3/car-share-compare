@@ -62,3 +62,5 @@ function deleteMovie(event) {
 	//if user selects cancel to the confirmation, do nothing
 		return false;
 }
+
+//---------------------------------------------- Delete Movie ----------------------------------------------

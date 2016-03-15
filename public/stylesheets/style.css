@@ -2,34 +2,41 @@
     position: relative;
   }
 
-  .hover-btn {
-     position: absolute;
-     right: 15px;
-  }
-/*
-     display: none;
- */
-  .row:hover .hover-btn {
-     display: block;
-  }
+.hover-btn {
+	position: absolute;
+	right: 15px;
+}
 
-  #btnSubmit {
-  	margin-top:5px;
-  	vertical-align: text-bottom;
-  }
+.btn {
+    border-radius: 0px;
+}
 
-  label {
-  	margin-top:5px;
-  }
+.row:hover .hover-btn {
+ 	display: block;
+}
 
-  .nav-bar a {
-  	margin-right: 10px;
-  }
+#btnSubmit {
+	margin-top:5px;
+	vertical-align: text-bottom;
+}
 
-  .nav-bar-login button {
-  	margin-right: 10px;
-  }
+label {
+	margin-top:5px;
+}
 
-  .nav-bar-login {
-  	margin-left: 10px;
-  }
+.nav-bar a {
+	margin-right: 10px;
+}
+
+.nav-bar-login button {
+	margin-right: 10px;
+}
+
+.nav-bar-login {
+	margin-left: 10px;
+}
+
+html, body .resume-container iframe {
+	height: auto;
+	width: 100%;
+}

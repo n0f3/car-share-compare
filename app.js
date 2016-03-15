@@ -8,9 +8,11 @@ var path = require('path');
 var fs = require('fs');
 var $ = require('jquery');
 
+//set the port to run on one that is specified or 5000
 app.set('port', (process.env.PORT || 5000));
 
-//comment this line and use the below connection string when connecting with heroku db
+//This is the db connection using Mongoose, we can use a local db connection or the heroku hosted.
+//comment the next line and use 'mongoUri' connection string when connecting with heroku db
 var localMongoUri = 'mongodb://127.0.0.1/MovieApp';
 var mongoUri = 'mongodb://heroku_5sv4k7jl:7rmbrhjhskfd620emm367u7o5j@ds023478.mlab.com:23478/heroku_5sv4k7jl';
 mongoose.connect(mongoUri);
@@ -19,20 +21,21 @@ db.on('error', function() {
 	throw new Error('unable to connect to database at ' + mongoUri);
 });
 
-// set public 
+// set static path to 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(express.static(__dirname + '/public'));
 
 // view engine setup
+//we're using JADE eventually we'll want to move to Angular
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+//using 'logger' for verbose dev. logging 
 app.use(logger('dev'));
+//using 'bodyParser' for parsing the body for response objects 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 /// error handlers
-
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
@@ -56,10 +59,12 @@ app.use(function(err, req, res, next) {
     });
 });
 
-//require models and routes files
+//require models for mongoose db schema setup
 require('./models/Movie')
+//require routes file for all routing
 require('./routes')(app);
 
+//start the app and listen on the specified port
 app.listen(app.get('port'), function(){
     console.log('NICE! We\'re running on port', app.get('port'));
 });

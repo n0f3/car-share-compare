@@ -1,55 +1,75 @@
 extends layout
 
 block content
-	div.container
-		div.page-header
-			h1 Movies Page
-			a(href="/", role="button" class="btn btn-secondary btn-sm") Home 
-			button(class="btn btn-secondary btn-sm") Next
-		div.row
-			div.col-md-4
-				h2 Try it out!
-				p Add a new movie using the form below
-		div.row
-			form#formAddMoive(name="addmovie",method="post",action="/addMovie")
-				div(class="input-group")
-					div.col-md-3
-						label(for="text") Title:
-						br
-						input#inputMovieTitle(type="text", class="form-control", placeholder="Title", aria-describedby="sizing-addon1", name="title")
-					div.col-md-3
-						label(for="number") Year:
-						br 
-						input#inputMovieYear(type="text", class="form-control", placeholder="Year", aria-describedby="sizing-addon2", name="year")
-					div.col-md-3
-						label(for="text") Genre:
-						br
-						input#inputMovieGenre(type="text", class="form-control", placeholder="Genre", aria-describedby="sizing-addon3", name="genre")
-					div.col-md-3
-						span(style="visibility: hidden;") place
-						button#btnSubmit(onClick="formValidation();", type="submit", class="btn btn-primary btn-lg btn-block") submit
-		hr
-		div.row
-			div.col-md-8
-				h2 Movie Table
-				table#movieTable(class="table table-hover")
-					thead
-						tr
-							th Titles
-							th Year
-							th Genre
-							th(style="text-align:right;") Remove
-								tbody#movielist
-								each movie, i in movielist
-									tr
-										td
-											a(href="#" id="#{movie.id}")= movie.title
-										td 
-											p(id="" )= movie.year
-										td
-											p(id="")= movie.genre
-										td
-											div.hover-btn
-											a#deleteMoive(href"#", rel="#{movie.id}" type="button", class="close")
-												span(class="glyphicon glyphicon-trash", aria-hidden="true", style="color:red;")
-												span(class="sr-only") Close
+	div(class="navbar navbar-default")
+		div.container
+			div.page-header
+				h1 Movies Page
+			div.navbar-header
+				button(class="navbar-toggle collapsed", data-toggle="collapse", data-target="#bs-example-navbar-collapse-1", aria-expanded="false")
+					span(class="sr-only") Toggle Navigation
+					span(class="icon-bar")
+					span(class="icon-bar")
+					span(class="icon-bar")
+				a(class="navbar-brand", href="#") Brand
+			div(class="collapse navbar-collapse", id="bs-example-navbar-collapse-1")
+				ul(class="nav navbar-nav")
+					li
+						a(href="/") Home 
+							span(class="sr-only") (current)
+					li(class="active")
+						a(href="movies") Projects
+					li
+						a(href="resume") Resume
+				ul(class="nav navbar-nav navbar-right")
+					li
+						div.nav-bar-login
+							button(href="#" id="", class="btn btn-secondary btn-lg") Register
+							button(href="#" id="", class="btn btn-primary btn-lg") Login
+			div.row
+				div.col-md-4
+					h2 Try it out!
+					p Add a new movie using the form below
+			div.row
+				form#formAddMoive(name="addmovie",method="post",action="/addMovie")
+					div(class="input-group")
+						div.col-md-3
+							label(for="text") Title:
+							br
+							input#inputMovieTitle(type="text", class="form-control", placeholder="Title", aria-describedby="sizing-addon1", name="title")
+						div.col-md-3
+							label(for="number") Year:
+							br 
+							input#inputMovieYear(type="text", class="form-control", placeholder="Year", aria-describedby="sizing-addon2", name="year")
+						div.col-md-3
+							label(for="text") Genre:
+							br
+							input#inputMovieGenre(type="text", class="form-control", placeholder="Genre", aria-describedby="sizing-addon3", name="genre")
+						div.col-md-3
+							span(style="visibility: hidden;") place
+							button#btnSubmit(onClick="formValidation();", type="submit", class="btn btn-primary btn-lg btn-block") submit
+			hr
+			div.row
+				div.col-md-8
+					h2 Movie Table
+					table#movieTable(class="table table-hover")
+						thead
+							tr
+								th Titles
+								th Year
+								th Genre
+								th(style="text-align:right;") Remove
+									tbody#movielist
+									each movie, i in movielist
+										tr
+											td
+												a(href="#" id="#{movie.id}")= movie.title
+											td 
+												p(id="yearBox" )= movie.year
+											td
+												p(id="")= movie.genre
+											td
+												div.hover-btn
+												a#deleteMoive(href"#", rel="#{movie.id}" type="button", class="close")
+													span(class="glyphicon glyphicon-trash", aria-hidden="true", style="color:red;")
+													//span(class="sr-only") Close
