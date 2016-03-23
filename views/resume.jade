@@ -3,16 +3,16 @@ extends layout
 block content
 	div(class="navbar navbar-default")
 		div.container
-			div.page-header
-				h1 My Resume
+			//- div.page-header
+			//- 	h1 My Resume
 			div.navbar-header
-				button(class="navbar-toggle collapsed", data-toggle="collapse", data-target="#bs-example-navbar-collapse-1", aria-expanded="false")
+				button(class="navbar-toggle collapsed", data-toggle="collapse", data-target="#navbar-collapse-1", aria-expanded="false")
 					span(class="sr-only") Toggle Navigation
 					span(class="icon-bar")
 					span(class="icon-bar")
 					span(class="icon-bar")
-				a(class="navbar-brand", href="#") Brand
-			div(class="collapse navbar-collapse", id="bs-example-navbar-collapse-1")
+				a#brandBtn(class="navbar-brand", href="/") Jeremy Levy
+			div(class="collapse navbar-collapse", id="navbar-collapse-1")
 				ul(class="nav navbar-nav")
 					li
 						a(href="/") Home 
@@ -21,14 +21,13 @@ block content
 						a(href="movies") Projects
 					li(class="active")
 						a(href="resume") Resume
-				ul(class="nav navbar-nav navbar-right")
-					li
-						div.nav-bar-login
+				//ul(class="nav navbar-nav navbar-right")
+					//li
+						//div.nav-bar-login
 							//button(href="#" id="", class="btn btn-secondary btn-lg") Register
-							a(href="https://drive.google.com/uc?export=download&id=0ByuNcnpbIwo_cXREamJKVENXcWc", class="btn btn-primary btn-lg") Download a Copy
+				div(class="nav navbar-nav navbar-right")
 		br
-		iframe(src="https://drive.google.com/file/d/0ByuNcnpbIwo_cXREamJKVENXcWc/preview" width="100%" height="700")
-
-
-
-					
+		a#downloadBtn(href="https://drive.google.com/uc?export=download&id=0ByuNcnpbIwo_ZkQ3MkZ1TXZNSk0", class="btn btn-primary btn-lg")
+			span(id="downGlyph", class="glyphicon glyphicon-save-file", aria-hidden="false")
+			//span(class="sr-only")
+		iframe(src="https://drive.google.com/file/d/0ByuNcnpbIwo_ZkQ3MkZ1TXZNSk0/preview" width="100%" height="600")

@@ -59,6 +59,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
+
 //require models for mongoose db schema setup
 require('./models/Movie')
 //require routes file for all routing

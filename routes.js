@@ -20,4 +20,5 @@ module.exports = function(app){
     app.delete('/deleteMovie/:id', movies.delMovie);
     app.get('/import/movies', movies.importMovies)
     app.get('/resume', movies.getResume);
+    app.use('*', movies.notFound);
 }

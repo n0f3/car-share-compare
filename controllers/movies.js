@@ -30,7 +30,8 @@ exports.addMovie = function(req, res) {
     var title = req.body.title;
     var year = req.body.year;
     var genre = req.body.genre;
-
+    console.log(req.body);
+    console.log(title, year, genre);
     // Submit to the DB
     Movie.create({
         "title": title,
@@ -44,7 +45,7 @@ exports.addMovie = function(req, res) {
             // And forward to success page
             console.log("Added " + title + " " + year + " " + genre);
             //TODO - instead we want to use an Ajax call here to only refresh the table
-            res.redirect("movies");
+            //res.redirect("movies");
         }
     });
 };
@@ -52,10 +53,6 @@ exports.addMovie = function(req, res) {
 
 //delete service, respones to delete requests and updates the table via client side Ajax
 exports.delMovie = function(req, res) {
-    console.log('in imporved delete');
-    console.log(req.db);
-    /*var db = req.db;
-    var collection = db.get('movies');*/
     console.log(req.params.id);
     var movieId = req.params.id;
     Movie.remove({
@@ -83,4 +80,9 @@ exports.importMovies = function(req, res) {
                if (err) return console.log(err);
                return res.sendStatus(202);
            });
+};
+
+//Handle 404 - not found
+exports.notFound = function(req, res) {
+    res.sendStatus(404);
 };
