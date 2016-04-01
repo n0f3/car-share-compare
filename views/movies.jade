@@ -4,7 +4,7 @@ block content
 	div(class="navbar navbar-default")
 		div.container
 			div.navbar-header
-				button(class="navbar-toggle collapsed", data-toggle="collapse", data-target="#navbar-collapse-1", aria-expanded="false")
+				button(a href="#", class="navbar-toggle collapsed", data-toggle="collapse", data-target="#navbar-collapse-1", aria-expanded="false")
 					span(class="sr-only") Toggle Navigation
 					span(class="icon-bar")
 					span(class="icon-bar")
@@ -32,7 +32,7 @@ block content
 					div.modal-dialog
 						div.modal-content
 							div.modal-header
-								button(type="button", class="close", data-dismiss="modal")
+								button(a href="#", type="button", class="close", data-dismiss="modal")
 									span(class="glyphicon glyphicon-remove-circle" aria-hidden="true", style="color:red")
 								h4(class="modal-title", style="color:#ff3300;") Wondering what in the world this is?
 							div.modal-body
@@ -40,9 +40,10 @@ block content
 								p What does all that mean?
 								p.
 									In short, the form on this page will take input from the user, thats you, then using an ajax call, will send, whatever you entered, to the nodejs server which will in turn send that to the database to be saved. Forevvverrrr...
-								p If you're intersted to know more send me an email jlevyd@gmail.com
-								//a#emailBtn(class="btn btn-default btn-md", href="mailto:jlevyd@gmail.com?Subject=Cool%20Website", target="_top") Email Me&nbsp;
-										span(class="glyphicon glyphicon-envelope" aria-hidden="true")
+								p If you would like to know more send me an email
+							div.modal-footer
+								a(class="btn btn-default" href="/contact")
+									span(class="glyphicon glyphicon-envelope", aria-hidden="true")
 			div.row
 				div.col-md-6
 					h2 Try it out!

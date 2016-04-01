@@ -11,10 +11,6 @@
   	margin-right:2px;
   }
 
-/*label {
-	margin-top:5px;
-}*/
-
 .nav>li>a {padding-top:15px; padding-right:0px; padding-left: 0px;}
 a.btn-nav { height:44px; width:auto; margin-left: 20px;}
 a.btn-nav:hover { height:44px;  }
@@ -38,7 +34,7 @@ html, body .resume-container iframe {
 	width: 100%;
 }
 
-#downloadBtn { position: fixed; bottom: 20px; right: 20px; }
+
 
 /*#learnMoreBtn { position: fixed; top: 60px; right: 15px; z-index: 1; }*/
 
@@ -46,6 +42,13 @@ html, body .resume-container iframe {
 .navbar-header{padding-top: 12px;}
 
 /*----------------- Start Buttons ------------------------*/
+
+#downloadBtn { 
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px; 
+}
+
 .navbar-default .navbar-brand {
   font-family: Consolas, monaco, monospace;
   color: #ff3300 !important;
