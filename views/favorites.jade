@@ -15,10 +15,10 @@ block content
 					li
 						a(class="btn-nav", href="/") Home 
 							//span(class="sr-only") (current)
-					li.active
-						a(class="btn-nav", href="movies") Projects
 					li
-						a(class="btn-nav", href="/favorites") Favorites
+						a(class="btn-nav", href="/movies") Projects
+					li.active
+						a(class="btn-nav", href="/favorites") Favorties
 					li
 						a(class="btn-nav", href="/contact") Contact Me
 					li
@@ -41,58 +41,29 @@ block content
 								p.
 									In short, the form on this page will take input from the user, thats you, then using an ajax call, will send, whatever you entered, to the nodejs server which will in turn send that to the database to be saved. Forevvverrrr...
 								p If you're intersted to know more send me an email jlevyd@gmail.com
-								//a#emailBtn(class="btn btn-default btn-md", href="mailto:jlevyd@gmail.com?Subject=Cool%20Website", target="_top") Email Me&nbsp;
-										span(class="glyphicon glyphicon-envelope" aria-hidden="true")
+							div.modal-footer
+								a(class="btn btn-default" href="/contact")
+									span(class="glyphicon glyphicon-envelope", aria-hidden="true")
 			div.row
 				div.col-md-6
-					h2 Try it out!
-					p Add a new movie using the form below
+					h2 Search for your favorite moive
+					p Enter a movie title below
 					div#formAlert(class="alert alert-danger", role="alert")
 						span(class="glyphicon glyphicon-exclamation-sign", aria-hidden="true")
 						span#alertTxt(class="sr-only") Error: 
-						|&nbsp;Enter A valid title
+						|&nbsp;Please Enter A Movie title
 			div.row
 				div.col-lg-6
-					form#formAddMoive(class="form-group-lg", name="addmovie")
+					div#formAddMoive(class="form-group-lg")
 						div(class="form-group has-feedback")
 							label(class="control-label", for="inputMovieTitle") Title:
-							input#inputMovieTitle(type="name", class="form-control", placeholder="Title", aria-describedby="inputTitleStatus", name="title")
+							input#inputFavMovieTitle(type="name", class="form-control", placeholder="Title", aria-describedby="inputTitleStatus", name="title")
 							span(id="form-feedback-title", class="glyphicon glyphicon-remove form-control-feedback", aria-hidden="true")
 							span(id="inputTitleStatus", class="sr-only")
-						div(class="form-group has-feedback")
-							label(class="control-label", for="inputMovieYear") Year:
-							input#inputMovieYear(type="text", class="form-control", placeholder="Year", aria-describedby="inputYearStatus", name="year")
-							span(id="form-feedback-year", class="glyphicon glyphicon-remove form-control-feedback", aria-hidden="true")
-							span(id="inputYearStatus", class="sr-only")
-						div(class="form-group has-feedback")
-							label(class="control-label", for="inputMovieGenre") Genre:
-							input#inputMovieGenre(type="text", class="form-control", placeholder="Genre", aria-describedby="inputGenreStatus", name="genre")
-							span(id="form-feedback-genre", class="glyphicon glyphicon-remove form-control-feedback", aria-hidden="true")
-							span(id="inputGenreStatus", class="sr-only")
 						div.form-group
-							button#btnSubmit(class="btn btn-primary btn-lg") submit
-			hr
+							button#favBtnSubmit(class="btn btn-primary btn-lg") submit
 			div.row
-				div.col-md-8
-					h2 Movie Table
-					table#movieTable(class="table table-hover")
-						thead
-							tr
-								th Titles
-								th Year
-								th Genre
-								th(style="text-align:right;") Remove
-									tbody#movielist
-									each movie, i in movielist
-										tr
-											td
-												a(href="#" id="#{movie.id}")= movie.title
-											td 
-												p(id="yearBox" )= movie.year
-											td
-												p(id="")= movie.genre
-											td
-												div.hover-btn
-												a#deleteMoive(href"#", rel="#{movie.id}" type="button", class="close")
-													span#trash(class="glyphicon glyphicon-trash", aria-hidden="true", style="color:red;")
-													//span(class="sr-only") Close
+				div.col-lg-6
+					p#resTitle
+					p#resPlot
+					img#resPoster(src="")

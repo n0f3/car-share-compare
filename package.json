@@ -1,7 +1,7 @@
 {
-  "name": "movie_app",
+  "name": "Personal_Site",
   "description": "Rest API with Node",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "body-parser": "^1.15.0",
@@ -9,7 +9,10 @@
     "jade": "^1.11.0",
     "jquery": "^2.2.1",
     "mongoose": "4.4.6",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "nodemailer": "^2.3.0",
+    "request": "^2.69.0",
+    "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
     "express": "4.13.3",

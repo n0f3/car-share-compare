@@ -1,0 +1,93 @@
+//Projects Page
+extends layout
+
+block content
+	div(class="navbar navbar-default")
+		div.container
+			div.navbar-header
+				button(class="navbar-toggle collapsed", data-toggle="collapse", data-target="#navbar-collapse-1", aria-expanded="false")
+					span(class="sr-only") Toggle Navigation
+					span(class="icon-bar")
+					span(class="icon-bar")
+					span(class="icon-bar")
+				a#brandBtn(class="navbar-brand", href="/") Jeremy Levy
+			div(class="collapse navbar-collapse", id="navbar-collapse-1")
+				ul(class="nav navbar-nav")
+					li
+						a(class="btn-nav", href="/") Home 
+							//span(class="sr-only") (current)
+					li
+						a(class="btn-nav", href="/movies") Projects
+					li
+						a(class="btn-nav", href="/favorites") Favorties
+					li.active
+						a(class="btn-nav", href="/contact") Contact Me
+					li
+						a(class="btn-nav", href="/resume") Resume
+				ul(class="nav navbar-nav navbar-right")
+					li
+						div.nav-bar-login
+							button(class="btn btn-secondary btn-lg", data-toggle="modal", data-target="#learnModal") ?
+							//button(href="#" id="", class="btn btn-primary btn-lg") Login
+				div#learnModal(class="modal fade", role="dialog")
+					div.modal-dialog
+						div.modal-content
+							div.modal-header
+								button(type="button", class="close", data-dismiss="modal")
+									span(class="glyphicon glyphicon-remove-circle" aria-hidden="true", style="color:red")
+								h4(class="modal-title", style="color:#ff3300;") Wondering what in the world this is?
+							div.modal-body
+								p This is a basic implementation of a RESTful api using node.js, Express and Mongo DB
+								p What does all that mean?
+								p.
+									In short, the form on this page will take input from the user, thats you, then using an ajax call, will send, whatever you entered, to the nodejs server which will in turn send that to the database to be saved. Forevvverrrr...
+								p If you would like to know more send me an email
+							div.modal-footer
+								a(class="btn btn-default" href="/contact")
+									span(class="glyphicon glyphicon-envelope", aria-hidden="true")
+									
+		div.container
+			div.row
+				div.col-md-6
+					h2 Let's Chat
+					p Send me a message using the form below
+						div#formMessageAlert(class="alert alert-danger", role="alert", style="display: none;")
+							span(class="glyphicon glyphicon-exclamation-sign", aria-hidden="true")
+							span#alertTxt(class="sr-only") Error: 
+							|&nbsp;#{msg}
+						div#formMessageAlert(class="alert alert-success", role="alert", style="display: none;")
+							span(class="glyphicon glyphicon-ok", aria-hidden="true")
+							span#alertTxt(class="sr-only") Success: 
+							|&nbsp;#{msg}
+						//-	if(typeof msg !== 'undefined')
+						//- if(!!err)
+						//- 	div#formMessageAlert(class="alert alert-danger", role="alert")
+						//- 		span(class="glyphicon glyphicon-exclamation-sign", aria-hidden="true")
+						//- 		span#alertTxt(class="sr-only") Error: 
+						//- 		|&nbsp;#{msg}
+						//- else
+						//- 	div#formMessageAlert(class="alert alert-success", role="alert")
+						//- 		span(class="glyphicon glyphicon-ok", aria-hidden="true")
+						//- 		span#alertTxt(class="sr-only") Success: 
+						//- 		|&nbsp;#{msg} 
+			div.row
+				div.col-lg-6
+					div#formMessage(class="form-group-lg", name="sendMessage")
+						div(class="form-group has-feedback")
+							label(class="control-label", for="inputName") Name:
+							input#inputName(type="name", class="form-control", placeholder="Name", aria-describedby="inputNameStatus", name="name")
+							span(id="form-feedback-name", class="glyphicon glyphicon-remove form-control-feedback", aria-hidden="true")
+							span(id="inputNameStatus", class="sr-only")
+						div(class="form-group has-feedback")
+							label(class="control-label", for="inputEmail") Email:
+							input#inputEmail(type="email", class="form-control", placeholder="Email", aria-describedby="inputEmailStatus", name="email")
+							span(id="form-feedback-email", class="glyphicon glyphicon-remove form-control-feedback", aria-hidden="true")
+							span(id="inputEmailStatus", class="sr-only")
+						div(class="form-group has-feedback")
+							label(class="control-label", for="inputMessage") Message:
+							textarea#inputMessage(rows="5", class="form-control", placeholder="Message", aria-describedby="inputMessageStatus", name="message")
+							span(id="form-feedback-message", class="glyphicon glyphicon-remove form-control-feedback", aria-hidden="true")
+							span(id="inputMessageStatus", class="sr-only")
+						div.form-group
+							button#btnSend(class="btn btn-primary btn-lg") Send
+		

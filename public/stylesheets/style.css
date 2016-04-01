@@ -1,5 +1,6 @@
  body, html, .container {
          height: 100%;
+         font-family: Consolas, monaco, monospace;
    }
 
 .row {
@@ -10,38 +11,26 @@
   	margin-right:2px;
   }
 
-.hover-btn {
-	position: absolute;
-	right: 15px;
-}
-
-.btn {
-    border-radius: 0px;
-}
-
-.row:hover .hover-btn {
- 	display: block;
-}
-
-#btnSubmit {
-	margin-top:5px;
-	vertical-align: text-bottom;
-}
-
 /*label {
 	margin-top:5px;
 }*/
 
+.nav>li>a {padding-top:15px; padding-right:0px; padding-left: 0px;}
+a.btn-nav { height:44px; width:auto; margin-left: 20px;}
+a.btn-nav:hover { height:44px;  }
+
 .nav-bar a {
 	margin-right: 10px;
+  height: 10px;
+  
 }
 
 .nav-bar-login button {
 	margin-right: 10px;
-}
-
-.nav-bar-login {
-	margin-left: 10px;
+  background-color: transparent;
+  border-color: #00b8ff;
+  border: 2px solid #00b8ff;
+  color: #00b8ff !important;
 }
 
 html, body .resume-container iframe {
@@ -51,29 +40,81 @@ html, body .resume-container iframe {
 
 #downloadBtn { position: fixed; bottom: 20px; right: 20px; }
 
+/*#learnMoreBtn { position: fixed; top: 60px; right: 15px; z-index: 1; }*/
+
 #navbar-collapse-1 {padding-top: 12px;}
 .navbar-header{padding-top: 12px;}
 
-.navbar-brand, #landingBtn1, #landingBtn2 {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  background: #ff5e0d;
+/*----------------- Start Buttons ------------------------*/
+.navbar-default .navbar-brand {
+  font-family: Consolas, monaco, monospace;
+  color: #ff3300 !important;
+  font-size: 30px;
+  background: #fffff;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   line-height: 30px;
   margin-left: 5px;
 }
 
-.navbar-brand:hover, #landingBtn1:hover, #landingBtn2:hover {
-  background: #555;
+.btn, #landingBtn1, #landingBtn2, #btnSubmit, #downloadBtn, #emailBtn, #learnMoreBtn, #favBtnSubmit {
+  font-family: Verdana;
+  color: #ffffff !important;
+  font-size: 20px;
+  background: #ff3300;
+  padding: 10px 20px 10px 20px;
   text-decoration: none;
-  color:white;
+  line-height: 30px;
+  margin-left: 5px;
+  border:none;
+}
+
+.btn:hover, #landingBtn1:hover, #landingBtn2:hover, #btnSubmit:hover, #emailBtn:hover, #learnMoreBtn:hover, #favBtnSubmit:hover{
+  background: #ccff00;
+  text-decoration: none;
+  color:#00b8ff !important;
 }}
 
-.background .col-md-12 {background-image: url("https://pixabay.com/static/uploads/photo/2015/11/15/21/09/background-1044838_960_720.jpg");}
+/*----------------- End Buttons ------------------------*/
 
-.jumbotron .h1, .jumbotron h1 {color:#ff5e0d !important;}
+/*----------------- Start Nav bar ------------------------*/
+.btn-nav {
+/*  color: black !important;*/
+height: 10px !important;
+padding-right: 0;
+  padding-left: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff; /* IE8 proofing */
+  color: rgba(255,255,255,.75);
+}
+
+ul.nav.navbar-nav {
+  margin-right:50px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color:#ff3300;  
+}
+
+.navbar-default .navbar-nav>.active>a {
+  border-bottom: solid #00b8ff 2px;
+  text-decoration: none;
+  background-color: transparent;
+  
+}
+.navbar-default .navbar-nav>.active>a:hover {
+  border-bottom: solid #00b8ff 2px;
+  text-decoration: none;
+  background-color: transparent;
+
+}
+
+.btn-nav:hover {
+/*color: black !important;*/
+  border-bottom: solid #00b8ff 2px;
+  text-decoration: none;
+}
+
+/*----------------- End Nav Bar ------------------------*/
+

@@ -1,67 +1,37 @@
 extends layout
 
 block content
-	div(class="jumbotron container-fluid")
-		h1.jumboName Jeremy Levy
-			h3 I'm a Web Developer from San Francisco
-	div.container-fluid
-		div.row
-			div.col-md-12
-				h3 Theres a few pages here, take a look
-	div.container-fluid
-		div.row
-			div.col-md-6
-				h3 A Node.js Project I'm Working on
-				a#landingBtn1(class="btn-primary btn-lg", href="/movies") Check It Out
-			div.col-md-6
-				h3 My Resume
-				a#landingBtn2(class="btn-primary btn-lg", href="/resume") Hire Me
-			//img(src="http://images.autosport.com/editorial/1456042165.jpg")
-			//- div.page-header
-			//- 	h1 Welcome
-			//- div.navbar-header
-			//- 	button(class="navbar-toggle collapsed", data-toggle="collapse", data-target="#navbar-collapse-1", aria-expanded="false")
-			//- 		span(class="sr-only") Toggle Navigation
-			//- 		span(class="icon-bar")
-			//- 		span(class="icon-bar")
-			//- 		span(class="icon-bar")
-			//- 	a#brandBtn(class="navbar-brand", href="/") Jeremy Levy
-			//- div(class="collapse navbar-collapse", id="navbar-collapse-1")
-			//- 	ul(class="nav navbar-nav")
-			//- 		li(class="active")
-			//- 			a(href="/") Me 
-			//- 				span(class="sr-only") (current)
-			//- 		li
-			//- 			a(href="movies") Projects
-			//- 		li
-			//- 			a(href="resume") Resume
-				//- ul(class="nav navbar-nav navbar-right")
-				//- 	li
-				//- 		div.nav-bar-login
-				//- 			button(href="#" id="", class="btn btn-secondary btn-lg") Register
-				//- 			button(href="#" id="", class="btn btn-primary btn-lg") Login
-			//img(src="https://pixabay.com/static/uploads/photo/2015/11/15/21/09/background-1044838_960_720.jpg")
-			//- div(class="row")
-			//- 	div.col-md-12
-			//- div(class="row", style="height:30%; display: block;")
-			//- 	div.col-md-12
-			//- 		div(id="bottomCarousel", class="carousel-slide", data-ride="carousel")
-			//- 			ol.carousel-indicators
-			//- 				li(data-target="#bottomCarousel" data-slide-to="0", class="active")
-			//- 				li(data-target="#bottomCarousel", data-slide-to="1")
-			//- 				li(data-target="#bottomCarousel", data-slide-to="2")
-			//- 			div(class="carousel-inner", role="listbox")
-			//- 				div.item(class="item active")
-			//- 					p item 1
-			//- 				div.item
-			//- 					div.container
-			//- 						div.carousel-caption
-			//- 							p item 2
-			//- 				div.item
-			//- 					p item 3
-			//- 			div(class="left carousel-control" href="#bottomCarousel", role="button", data-slide="prev")
-			//- 				span(class="glyphicon glyphicon-chevron-left", aria-hidden="ture")
-			//- 				span(class="sr-only") Previous
-			//- 			div(class="right carousel-control" href="#bottomCarousel", role="button", data-slide="next")
-			//- 				span(class="glyphicon glyphicon-chevron-right", aria-hidden="ture")
-			//- 				span(class="sr-only") Next
+	link(rel='stylesheet', href='/stylesheets/cover.css')
+	div.site-wrapper
+		div.site-wrapper-inner
+			div.cover-container
+				div(class="masthead clearfix")
+					div.inner
+						h3.masthead-brand Jeremy Levy
+						nav
+							ul(class="nav masthead-nav")
+								li.active
+									a(href="/") Home
+								li
+									a(href="/movies") Projects
+								li
+									a(href="/favorites") Favorites
+								li
+									a(href="/contact") Contact Me
+								li
+									a(href="/resume") Resume
+				div(class="inner cover")
+					h1.cover-heading I'm Jeremy
+					p.lead I'm a web developer from San Francisco,
+					p.lead Check out some of the projects I'm working on.
+						//a(class="btn btn-primary btn-lg") GO!
+			//- div(class="row", style="width:100%; margin-left:0px;")
+			//- 	div.col-md-4
+			//- 		p TESTING
+			//- 	div.col-md-4
+			//- 		p TESTING
+			//- 	div.col-md-4
+			//- 		p TESTING
+			//- div.mastfoot
+			//- 	div.inner
+			//- 		p Something Goes here

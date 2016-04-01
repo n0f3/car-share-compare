@@ -15,12 +15,15 @@ block content
 			div(class="collapse navbar-collapse", id="navbar-collapse-1")
 				ul(class="nav navbar-nav")
 					li
-						a(href="/") Home 
-							span(class="sr-only") (current)
+						a(class="btn-nav", href="/") Home 
 					li
-						a(href="movies") Projects
-					li(class="active")
-						a(href="resume") Resume
+						a(class="btn-nav", href="/movies") Projects
+					li
+						a(class="btn-nav", href="/favorites") Favorites
+					li
+						a(class="btn-nav", href="/contact") Contact Me
+					li.active
+						a(class="btn-nav", href="/resume") Resume
 				//ul(class="nav navbar-nav navbar-right")
 					//li
 						//div.nav-bar-login

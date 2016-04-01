@@ -1,12 +1,14 @@
 //MAIN - Server
 var express = require('express');
 var app = express();
+var request = require('request');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var path = require('path');
 var fs = require('fs');
-var $ = require('jquery');
+var favicon = require('serve-favicon');
+var nodemailer = require('nodemailer');
 
 //set the port to run on one that is specified or 5000
 app.set('port', (process.env.PORT || 5000));
@@ -23,7 +25,7 @@ db.on('error', function() {
 
 // set static path to 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 // view engine setup
 //we're using JADE eventually we'll want to move to Angular
 app.set('views', path.join(__dirname, 'views'));
