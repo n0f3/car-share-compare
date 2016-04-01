@@ -296,7 +296,7 @@ $('#btnSend').on('click', function() {
 			count++;
 	}
 	if (count === 3) {
-		sendData(formValues);
+		sendContactData(formValues);
 		//console.log("Count is " + count + " Sending data");
 	} else {
 		//console.log("Count is " + count + " not Sending data");
@@ -308,7 +308,7 @@ $('#btnSend').on('click', function() {
 	}
 });
 //if all input is good send the data
-function sendData(formValues) {
+function sendContactData(formValues) {
 	$.ajax({
 		type: 'POST',
 		data: formValues,
