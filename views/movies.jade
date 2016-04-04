@@ -53,25 +53,35 @@ block content
 						span#alertTxt(class="sr-only") Error: 
 						|&nbsp;Enter A valid title
 			div.row
-				div.col-lg-6
+				div.col-lg-4
 					form#formAddMoive(class="form-group-lg", name="addmovie")
 						div(class="form-group has-feedback")
-							label(class="control-label", for="inputMovieTitle") Title:
+							//- label(class="control-label", for="inputMovieTitle") Title:
 							input#inputMovieTitle(type="name", class="form-control", placeholder="Title", aria-describedby="inputTitleStatus", name="title")
 							span(id="form-feedback-title", class="glyphicon glyphicon-remove form-control-feedback", aria-hidden="true")
 							span(id="inputTitleStatus", class="sr-only")
 						div(class="form-group has-feedback")
-							label(class="control-label", for="inputMovieYear") Year:
+							//- label(class="control-label", for="inputMovieYear") Year:
 							input#inputMovieYear(type="text", class="form-control", placeholder="Year", aria-describedby="inputYearStatus", name="year")
 							span(id="form-feedback-year", class="glyphicon glyphicon-remove form-control-feedback", aria-hidden="true")
 							span(id="inputYearStatus", class="sr-only")
 						div(class="form-group has-feedback")
-							label(class="control-label", for="inputMovieGenre") Genre:
+							//- label(class="control-label", for="inputMovieGenre") Genre:
 							input#inputMovieGenre(type="text", class="form-control", placeholder="Genre", aria-describedby="inputGenreStatus", name="genre")
 							span(id="form-feedback-genre", class="glyphicon glyphicon-remove form-control-feedback", aria-hidden="true")
 							span(id="inputGenreStatus", class="sr-only")
 						div.form-group
 							button#btnSubmit(class="btn btn-primary btn-lg") submit
+				div.col-lg-4
+					h3(style="margin-top:0px;") Title:
+					p Pulp Fiction
+					h3 Genre:
+					p Action
+					h3 Rating:
+					p 80%
+				div.col-lg-4
+					img(src="#")
+
 			hr
 			div.row
 				div.col-md-8
@@ -96,4 +106,4 @@ block content
 												div.hover-btn
 												a#deleteMoive(href"#", rel="#{movie.id}" type="button", class="close")
 													span#trash(class="glyphicon glyphicon-trash", aria-hidden="true", style="color:red;")
-													//span(class="sr-only") Close
+													span(class="sr-only") Close

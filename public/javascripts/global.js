@@ -202,15 +202,28 @@ function onChangeValidation() {
 	});
 }
 
-//---------------------------------------------- Query OMbd ----------------------------------------------
+//---------------------------------------------- Favorites Validation ----------------------------------------------
+/*function valFavInputBox(){
+	if($('#inputFavMovieTitle').val().length === 0) {
+		return false
+	}
+}
+
+$('#inputFavMovieTitle').on('keyup', function(){
+	(valFavInputBox()) ? {  } : {};
+})*/
+
+
 
 $('#favBtnSubmit').on('click', function() {
 	var title = $('#inputFavMovieTitle').val();
 	//empty the results listings for every new search
 
+	//set the movie title to an object
 	var favTitle = {
 		title: title
 	};
+	//call ajax function
 	findFavoriteMovie(favTitle);
 });
 
@@ -227,10 +240,8 @@ function findFavoriteMovie(favTitle) {
 			checkIfMovieExists(response);
 		}
 	}).fail(function(status) {
-		alert(status);
-	})/*.done(function(response){
-		checkIfMovieExists(response);
-	})*/
+		alert("Error, not sent");
+	});
 	//empty the form after each submission
 	$('#resTitle').val("");
 	$('#resPlot').val("");
@@ -255,7 +266,7 @@ function checkIfMovieExists(response) {
 		$('#inputFavMovieTitle').val("");
 	}
 }
-//---------------------------------------------- End Query OMbd ----------------------------------------------
+//---------------------------------------------- End Favorites ----------------------------------------------
 
 //---------------------------------------------- Start Contact Form ----------------------------------------------
 $('#btnSend').on('click', function() {
