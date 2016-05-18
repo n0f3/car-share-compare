@@ -18,13 +18,16 @@ module.exports = function(app){
     //delete route
     //app.get('/movies/:id', movies.deleteMovies);
     app.delete('/deleteMovie/:id', movies.delMovie);
+    app.delete('/deleteFav/:id', movies.delFav);
     app.get('/projects', movies.getProjectsPage);
     app.get('/import/movies', movies.importMovies);
     app.get('/resume', movies.getResume);
     app.get('/contact', movies.getContactPage);
     app.post('/contact', movies.postContactMessage);
     //routes for movie search of OMdb
+    //app.update('/favorites:id', movies.updateFav);
     app.get('/favorites', movies.getFavoritesPage);
-    app.post('/searchFavorites', movies.getOMdbMovie)
+    app.post('/searchFavorites', movies.getOMdbMovie);
+    app.post('/searchFavorites/saveMovie', movies.savFavSeach);
     app.use('*', movies.notFound);
 }

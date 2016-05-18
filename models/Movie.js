@@ -12,3 +12,15 @@ var MoviesSchema = new Schema({
 
 //tell mongoose that from now on we will refer to this collection as 'Movie' using the schema 'MoviesSchema'
 mongoose.model('Movie', MoviesSchema);
+
+//--------------------------------Start Favorites Schema ------------------------------
+
+var FavsSchema = new Schema({
+	title: String,
+	isWatched: Boolean,
+	entryDate: { type: Date, default: Date.now },
+	likes: Number
+});
+
+//tell mongoose that from now on we will refer to this collection as 'Movie' using the schema 'MoviesSchema'
+mongoose.model('Favs', FavsSchema);

@@ -1,10 +1,26 @@
- body, html, .container {
-         height: 100%;
-         font-family: Consolas, monaco, monospace;
+/* Global Styles for j-levy.com - Jeremy Levy 2016 */
+
+/*-------------------Hide the Error feedback on pageload-------------------------*/
+#formAlert, #form-feedback-title, #form-feedback-year, #form-feedback-genre, #form-feedback-name, #form-feedback-email, #form-feedback-message {
+  display: none;
+}
+
+ body, html, /*.container .resume-container iframe */ {
+         /*font-family: Consolas, monaco, monospace;*/
+         font-family: verdana;
+        width: 100%;
+        position: relative;
+        min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  height: 100%;
+  margin-bottom: 60px;
+  font-family: 'Raleway', sans-serif;
    }
 
 .row {
-    position: relative;
+   /* margin-top:50px;*/
   }
 
   input {
@@ -29,18 +45,6 @@ a.btn-nav:hover { height:44px;  }
   color: #00b8ff !important;
 }
 
-html, body .resume-container iframe {
-	height: auto;
-	width: 100%;
-}
-
-
-
-/*#learnMoreBtn { position: fixed; top: 60px; right: 15px; z-index: 1; }*/
-
-#navbar-collapse-1 {padding-top: 12px;}
-.navbar-header{padding-top: 12px;}
-
 /*----------------- Start Buttons ------------------------*/
 
 #downloadBtn { 
@@ -49,18 +53,28 @@ html, body .resume-container iframe {
   right: 20px; 
 }
 
+#favBtn,#likeBtn, #learnMoreBtn { 
+font-size: 20px;
+/*float: right;*/
+  /*position: fixed; */
+  bottom: 20px; 
+  right: 20px; 
+  background-color: transparent;
+  color: #00b8ff !important;
+}
+
 .navbar-default .navbar-brand {
-  font-family: Consolas, monaco, monospace;
+  font-family: 'Oleo Script', cursive;
   color: #ff3300 !important;
   font-size: 30px;
-  background: #fffff;
+  background-color: #fffff;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   line-height: 30px;
   margin-left: 5px;
 }
 
-.btn, #landingBtn1, #landingBtn2, #btnSubmit, #downloadBtn, #emailBtn, #learnMoreBtn, #favBtnSubmit {
+.btn, #landingBtn1, #landingBtn2, #btnSubmit, #downloadBtn, #emailBtn, #favBtnSubmit {
   font-family: Verdana;
   color: #ffffff !important;
   font-size: 20px;
@@ -68,14 +82,14 @@ html, body .resume-container iframe {
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   line-height: 30px;
-  margin-left: 5px;
   border:none;
 }
 
-.btn:hover, #landingBtn1:hover, #landingBtn2:hover, #btnSubmit:hover, #emailBtn:hover, #learnMoreBtn:hover, #favBtnSubmit:hover{
+.btn:hover, #landingBtn1:hover, #landingBtn2:hover, #btnSubmit:hover, #emailBtn:hover, #favBtnSubmit:hover,#learnMoreBtn:hover, #favBtn:hover, #likeBtn:hover{
   background: #ccff00;
   text-decoration: none;
-  color:#00b8ff !important;
+  /*color:#00b8ff !important;*/
+  color:#ff3300 !important;
 }}
 
 /*----------------- End Buttons ------------------------*/
@@ -93,18 +107,21 @@ padding-right: 0;
 }
 
 ul.nav.navbar-nav {
-  margin-right:50px;
+  margin-right:100px;
 }
 
 .navbar-default .navbar-nav>li>a {
   color:#ff3300;  
 }
 
+/*-------------------Learn More Button------------------------*/
+
+
 .navbar-default .navbar-nav>.active>a {
   border-bottom: solid #00b8ff 2px;
   text-decoration: none;
   background-color: transparent;
-  
+  width: auto;
 }
 .navbar-default .navbar-nav>.active>a:hover {
   border-bottom: solid #00b8ff 2px;
@@ -119,5 +136,110 @@ ul.nav.navbar-nav {
   text-decoration: none;
 }
 
+.demo-modal {
+  float: right;
+}
+
 /*----------------- End Nav Bar ------------------------*/
+
+#favTable-container {
+  height:500px;
+  overflow-y: scroll;
+}
+
+.likeBtnBar {
+  display: none;
+/*
+  position: relative;
+  width: 50px;
+  margin: 0px;*/
+}
+
+#posterDiv {
+  display:none;
+
+}
+#likeBtnBar {
+  display:none;
+}
+#likeBtnBar:hover {
+  display:none;
+}
+
+.featureHeadings {
+  display: none;
+
+  }
+
+  .featureHeadings > h3{
+    /*margin:0px;*/
+  }
+
+.save {
+  display: none;
+}
+
+.edit {
+  
+}
+#plotText {
+  font-size: 14px;
+  font-style: normal;
+}
+#moreDetailsBtn {
+  display: none;
+}
+
+#resPlot {
+  display: none;
+}
+
+span.close {
+  flaot:none !important;
+}
+
+
+.bridge-picture{
+   width: 100%; /* or any custom size */
+    height: 100%; 
+}
+
+
+
+/*----------------- Start Footer ------------------------*/
+
+.footer {
+  position: absolute;
+  width: 100%;
+  bottom:0px;
+  /* Set the fixed height of the footer here */
+  height: 80px;
+  background-color: #00b8ff;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.26);
+}
+
+@media (min-width: 768px) {
+  .footer {
+    bottom:none;
+  }
+}
+
+.footer-text {
+  padding-top: 10px;
+  margin-top: 10px;
+  opacity: .5;
+  color:white;
+}
+
+.social-buttons-bar a {
+height: 50px;
+width: 50px;
+padding: 5px;
+background: none;
+margin: 5px;
+}
+.social-buttons-bar a>span{
+  padding-top: 8px;
+}
+
 

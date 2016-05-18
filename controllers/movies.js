@@ -2,6 +2,7 @@
 //this is where the logic of all routes is written
 var mongoose = require('mongoose');
 Movie = mongoose.model('Movie');
+Favs = mongoose.model('Favs');
 var request = require('request');
 var nodemailer = require('nodemailer');
 
@@ -50,7 +51,7 @@ exports.postContactMessage = function(req, res) {
     }
     //Yay!! Email sent
     else {
-      res.render('contact', {  
+      res.render('contact', {
         msg: 'Message sent! Thank you.\n' + info.response,
         err: false,
         page: 'contact'
@@ -101,7 +102,6 @@ exports.addMovie = function(req, res) {
   });
 };
 
-
 //delete service, respond to delete requests and updates the table via client side Ajax
 exports.delMovie = function(req, res) {
   console.log(req.params.id);
@@ -112,12 +112,26 @@ exports.delMovie = function(req, res) {
     res.send((err === null) ? {
       msg: ''
     } : {
-      msg: 'error' + err
+      msg: 'Error! ' + err
     });
   });
 };
 
-exports.importMovies = function(req, res) {
+exports.delFav = function(req, res) {
+  console.log(req.params.id);
+  var favId = req.params.id;
+  Favs.remove({
+    '_id': favId,
+  }, function(err) {
+    res.send((err === null) ? {
+      msg: ''
+    } : {
+      msg: 'Error! ' + err
+    });
+  });
+};
+
+/*exports.importMovies = function(req, res) {
   Movie.create({
       "title": "Titanic",
       "year": "1998",
@@ -135,38 +149,81 @@ exports.importMovies = function(req, res) {
       if (err) return console.log(err);
       return res.sendStatus(202);
     });
+};*/
+exports.importMovies = function(req, res) {
+  Favs.create({
+      "title": "Pulp Fiction",
+      "isWatched": "true",
+      "likes": 25
+    }, {
+      "title": "Toy Story",
+      "isWatched": "true",
+      "likes": 100
+    }, {
+      "title": "Titanic",
+      "isWatched": "false",
+      "likes": 243
+    },
+    function(err) {
+      if (err) return console.log(err);
+      return res.sendStatus(202);
+    });
 };
 
 exports.getFavoritesPage = function(req, res) {
-  res.render('favorites');
+  Favs.find({}, function(err, results) {
+    return res.render('favorites', {
+      "favlist": results
+    });
+  });
 }
 
 exports.getOMdbMovie = function(req, res) {
-    var url = 'http://www.omdbapi.com/?t='
-    var title = req.body.title;
-    var searchUrl = url + title;
-    console.log("in getOMdbMovie route " + searchUrl);
-    request(searchUrl, function(error, response, body) {
-      if (!error && response.statusCode == 200) {
-        //console.log(body);
-      }
-    }).on('data', function(body) {
+  var url = 'http://www.omdbapi.com/?plot=full&t='
+  var title = req.body.title;
+  var searchUrl = url + title;
+  console.log("in getOMdbMovie route " + searchUrl);
+  request(searchUrl, function(error, response, body) {
+    if (!error && response.statusCode == 200) {
       res.send(body);
-    });
-
-    /*request(searchUrl, function(error, response, body) {
-      console.log("in request");
-      response.on('error', function(e) {
-        console.log("Got Error" + e);
-      }).on('response', function(body) {
-        console.log("in happy path response");
-        console.log("Body:" + body);
-      }).on('end', function() {
-          console.log("ending connection to OMbd");
+    } else {
+      res.send({
+        msg: 'Error finding finding movie, ' + error
       });
-    })*/
-  }
-  //Handle 404 - not found
+    }
+  });
+}
+
+exports.savFavSeach = function(req, res) {
+  var title = req.body.searchTitle;
+  var titleObj = {
+    title: title,
+    response: false
+  };
+  console.log("Got Movie Name " + titleObj.title);
+
+  Favs.create({
+    "title": titleObj.title,
+    "isWatched": "false",
+    "likes": 0
+  }, function(err, results) {
+    if (err) {
+      // If it failed, return error
+      res.send("There was a problem adding the information to the database. " + err);
+    } else {
+      titleObj.response = true;
+      res.send(titleObj);
+      console.log("Added " + titleObj.title);
+    }
+  });
+}
+
+exports.updateFav = function(req, res) {
+  var favId = req.params.id;
+
+}
+
+//Handle 404 - not found
 exports.notFound = function(req, res) {
   res.sendStatus(404);
 };
