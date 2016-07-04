@@ -1,0 +1,284 @@
+html, body {
+	margin:0px;
+	padding:0px;
+	/*font-family: 'Raleway', sans-serif;*/
+	font-family: 'Roboto Slab', serif;
+	height: 100%;
+}
+
+/*------------------------------------ Start Globals -----------------------------------*/
+
+a {
+  color: #00B7FF;
+}
+
+input {
+	font-family: verdana;
+	font-size: 1em;
+	font-weight: 500;
+	border:none;
+	margin: 0px 5px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    grey;
+  opacity:  .4;
+  padding-left:10px;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    white;
+   opacity:  .4;
+   padding-left: 10px;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    white;
+   opacity:  .4;
+  padding-left:10px;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    white;
+  opacity:  .4;
+  padding-left: 10px;
+}
+
+button {
+	/*font-family: 'Raleway', sans-serif;*/
+	font-family: 'Roboto Slab', serif;
+	font-size: 1em;
+	font-weight: 700;
+}
+
+/*------------------------------------ Start Globals -----------------------------------*/
+
+/*------------------------------------ Start Landing Page -----------------------------------*/
+
+.logo{
+	padding:25px;
+	margin: 20px 0px 0px 20px;
+	/*border: solid 3px white;
+	border-radius: 5px;*/
+}
+
+.center-column {
+	color:white;
+	/*width:70%;*/
+	margin:auto;
+	text-align: center;
+}
+
+.center-column-black {
+	color:black;
+	width:70%;
+	margin:auto;
+	text-align: center;
+}
+
+.features-column{
+	width:90%;
+	margin:auto;
+	text-align: center;
+}
+
+.center-column.down-arrow{
+	/*margin-top: -25px;*/
+	text-align: center;
+	background: #fff;
+	width: 50px;
+	height: 50px;
+	opacity: .5;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.center-column.down-arrow:hover{
+	opacity: 1;
+}
+
+
+.multi-box-column {
+	padding: 0;
+  margin: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+
+.box{
+  padding: 10px;
+/*  width: 350px;*/
+  height: 100%;
+  margin:10px 0px 10px 0px;
+  font-size: 1.5em;
+}
+
+.two{
+ 	width: 450px;
+}
+
+.three{
+	width: 300px;
+}
+
+.four{
+	width: 200px;
+}
+
+.six{
+	width: 100px;
+}
+
+.box:nth-of-type(2){
+	text-align: center;
+}
+
+.box p {
+	margin: 0px;
+}
+.box h2 {
+	margin: 0px 0px 10px 0px;
+}
+
+.box h3 {
+	margin: 0px 0px 10px 0px;
+}
+
+.box button, input{
+	width:200px;
+	height: 50px;
+	margin-bottom: 10px;
+}
+
+.box img {
+	height: 128px;
+	width: 128px;
+}
+
+button.primary {
+	border: none;
+	color: white;
+	background-color: #FF5252;
+}
+button.secondary {
+	background: none;
+	color: #FF5252;
+	border: solid 2px #FF5252;
+	font-weight: bold;
+}
+
+button:hover{
+	color:white;
+	background-color: #FF7070;
+}
+
+button:active{
+	background-color: #E13434;
+}
+
+.section-one>h1 {
+	margin:0px;
+}
+.section-one {
+	background:
+	linear-gradient(
+      rgba(0, 188, 212, 0.30), 
+     rgba(0, 188, 212, 0.30)
+    ),
+	url(/images/assets/imagery/car-dashboard-in-abstract-city-reflections-picjumbo-com.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:100%;
+    /*height:700px;*/
+    min-height: 500px;
+}
+
+.section-two {
+    width:100%;
+    min-height: 400px;
+}
+
+.section-three {
+	background-color: #00BCD4;
+    width:100%;
+    min-height: 500px;
+}
+
+#company-logos img:hover{
+	transform: translate(0px, 2px);
+  -webkit-transform: translate(0px, 2px);
+}
+
+.footer-section{
+	width: 100%;
+	min-height: 100px;
+	font-size: 12px;
+}
+
+.social-icons{
+	float: left;
+	position:relative;
+	bottom: 10px;
+	margin:0px 20px 0px 10px;
+}
+
+.copyright {
+	/*width: 300px;
+	margin: auto;	*/
+}
+
+.copyright p {
+	margin: 10px 0px 10px 0px;
+}
+
+.social-icons img{
+	margin-right: 5px;
+	width: 40px;
+	height: 40px;
+}
+
+.social-icons p{
+	margin: 10px 0px 10px 0px;
+}
+
+.disclaimer {
+	width: 80%;
+	font-size: 12px;
+}
+
+.back-to-top{
+	position: fixed;
+	bottom: 10px;
+	right:10px;
+	text-align: center;
+	font-weight: 700;
+}
+.back-to-top:hover{
+	background-color: white;
+	border-radius: 5px;
+}
+
+
+
+/*------------------------------------ End Landing Page -----------------------------------*/
+
+/*------------------------------------ Start Mobile -----------------------------------*/
+
+@media only screen and (max-width: 500px) { 
+  img.logo{
+		height:75px;
+		width: 99px; 
+	}
+}
+
+/*------------------------------------ End Mobile -----------------------------------*/
