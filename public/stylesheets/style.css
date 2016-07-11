@@ -19,6 +19,7 @@ input {
 	border:none;
 	margin: 0px 5px;
 	width: 100px;
+	display: inline;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -45,6 +46,13 @@ button {
 	border-radius: 5px;*/
 }
 
+.small{
+  margin: 0px;
+  padding: 5px;
+  height: 40px;
+  width: 55px;
+}
+
 .center-column {
 	color:white;
 	/*width:70%;*/
@@ -57,6 +65,7 @@ button {
 /*	width:70%;*/
 	margin:auto;
 	text-align: center;
+  padding: 0px 10px 0px 10px;
 }
 
 .features-column{
@@ -134,7 +143,13 @@ button {
 	margin: 0px 0px 10px 0px;
 }
 
-.box button, input{
+.box button {
+	width:200px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.box input {
 	width:200px;
 	height: 50px;
 	margin-bottom: 10px;
@@ -149,12 +164,14 @@ button.primary {
 	border: none;
 	color: white;
 	background-color: #FF5252;
+  cursor: pointer;
 }
 button.secondary {
 	background: none;
 	color: #FF5252;
 	border: solid 2px #FF5252;
 	font-weight: bold;
+  cursor: pointer;
 }
 
 button:hover{
@@ -195,8 +212,8 @@ button:active{
 }
 
 #company-logos img:hover{
-	transform: translate(0px, 2px);
-  -webkit-transform: translate(0px, 2px);
+	transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
 }
 
 .footer-section{
@@ -212,13 +229,10 @@ button:active{
 	margin:0px 20px 0px 20px;
 }
 
-
-
 .copyright{
 	font-size: 14px;
 	margin:0px 20px 0px 10px;
 }
-
 
 .copyright img {
 	width: 80px;
@@ -232,8 +246,6 @@ button:active{
 	height: 40px;
 	text-align: center;
 }
-
-
 
 .disclaimer {
 	width: 80%;
@@ -254,15 +266,11 @@ button:active{
 }
 
 
-
-/*------------------------------------ End Landing Page -----------------------------------*/
-
 /*------------------------------------ Start Mobile -----------------------------------*/
 
 @media only screen and (max-width: 500px) { 
-  img.logo{
+  .section-one > .logo{
 		height:75px;
-		width: 99px; 
 	}
 	.back-to-top img{
 		height: 30px;
@@ -271,3 +279,295 @@ button:active{
 }
 
 /*------------------------------------ End Mobile -----------------------------------*/
+
+
+
+/*------------------------------------ End Landing Page -----------------------------------*/
+
+
+
+/*------------------------------------ Start Comparison Page -----------------------------------*/
+
+.top-nav{
+  z-index:2;
+  position:fixed;
+  top:0px;
+  right:0px;
+  height:50px;
+  width:100%;
+  background: linear-gradient(45deg,#263238 50%,#37424b 50%);
+  box-shadow: 0px 0px 1em rgba(55, 66, 75, .7);
+}
+
+.top-nav img{
+  float: left;
+}
+
+.page-nav-links{
+  float:left;
+  padding:10px;
+  margin-left:20px;
+}
+
+.page-nav-links a{
+  border:none;
+  text-decoration: none;
+  margin:10px;
+  color:white;
+}
+
+.page-nav-links a:hover {
+  /*text-decoration: underline;*/
+  padding-bottom: 16px;
+  border-bottom: 3px solid #00B7FF;
+}
+
+#menuBtn{
+  z-index:3;
+  /*padding:10px;*/
+  position:fixed;
+  top:10px;
+  right:10px;
+  border:none;
+  cursor: pointer;
+  fill: white;
+}
+.menu-container {
+  z-index:1;
+   position:fixed;
+   top:0px;
+    right:0px;
+  width:200px;
+  height:100%;
+  
+   -moz-transform: translateX(300px);
+    -ms-transform: translateX(300px); 
+    -webkit-transform: translateX(300px);
+    transform: translateX(300px);
+  
+  -moz-transition: all 400ms;
+  -o-transition: all 400ms;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+ 
+}
+.menu-container-active{
+  z-index:1;
+  height:100%;
+  position:fixed;
+  /* top:30px; */
+   top:0px;
+  right:0px;
+  
+  background: rgba(0,0,0,0.8);
+  /* box-shadow: -10px 0px 10px 1px #aaaaaa; */
+  
+  -moz-transition: all 400ms;
+  -o-transition: all 400ms;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+  
+   -moz-transform: translateX(0px);
+    -ms-transform: translateX(0px); 
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+}
+
+.nav-bar {
+  z-index:1;
+  text-align:left
+  margin-bottom:20px;
+  position:fixed;
+ /*  top:30px; */
+  top:0px;
+  right:0px;
+  width:200px;
+  height:100%;
+  /*font-size:30px;*/
+  background-color:#263238;
+  /* box-shadow: 2px 0px 5px 1px #aaaaaa; */
+}
+.nav-bar>ul {
+  /* padding:10px; */
+  margin-top:50px;
+  padding:0px;
+  background-color:white;
+}
+.nav-bar li {
+  list-style-type: none;
+  border-bottom:1px solid gray;
+  margin:0px;
+}
+.nav-bar button{
+  background-color:#37424b;
+  border:none;
+  width:100%;
+  height:45px;
+  text-align:left;
+  margin:0px;
+  font-family: 'Raleway', sans-serif;
+}
+.nav-bar button:hover {
+  background-color:#E3F2FD;
+}
+
+/*------------End Slide Nav--------------*/
+.main-container{
+/*   z-index:0; */
+/*   overflow: auto; */
+}
+
+.table-container{
+  margin-top:50px;
+  /* min-width:550px; */
+  text-align:center;
+  overflow: scroll;
+}
+.logo-container{
+  position:relative;
+}
+.close {
+  z-index:0;
+  cursor:pointer;
+  padding:2px;
+  position:absolute;
+  top:-10px;
+  right:50px;
+  font-size:14px;
+  color:white;
+  background:#37424b;
+  border:none;
+  width:25px;
+  height:25px;
+  
+}
+
+.close:hover {
+  background:  #ff6666;
+}
+
+.logo-container img{
+  height: 75px;
+  width: 75px;
+}
+
+.feature-headings {
+  font-size: 20px;
+  /*line-height: 35px;*/
+}
+
+ table {
+  table-layout: fixed;
+    margin: 0 auto;
+   /* border: solid 5px grey; */
+   border-collapse: collapse; 
+  }
+
+ul {
+  margin-top:0px;
+}
+
+tr li {
+  padding-top:10px;
+  margin-right:10px
+}
+
+tr, th {
+  
+  padding:10px;
+  vertical-align:top;
+  border: none;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 188, 212, .2);
+}
+
+th {
+  min-width:150px;
+  /*border-top:solid 5px grey; 
+  border-right: solid 5px grey; 
+  border-left: solid 5px grey;*/
+}
+
+tr:last-of-type {
+  /*border-bottom: solid 5px grey; */
+}
+
+td:first-of-type{
+  line-height: 60px;
+  min-width: 80px;
+}
+
+td {
+  min-width:269px;
+  /*border-right: solid 5px grey; 
+  border-left: solid 5px grey;*/
+}
+
+@media only screen and (max-width: 500px) { 
+  td, th {
+    min-width:200px;
+    max-width:200px;
+  },
+  .top-nav img {
+    height: 45px;
+    width: 50px;
+  }
+}
+
+/* -------------------- list page ---------------------------*/
+
+.list-container{
+  margin-top: 40px;
+  font-size: 12px;
+}
+
+.list-container .box{
+  padding: 10px;
+  border: 3px solid rgba(55, 66, 75, .7);
+  border-radius: 10px;
+  box-shadow: 0 0 1em rgba(55, 66, 75, .7);
+}
+
+.list-container .secondary{
+  float: right;
+  font-size:16px;
+  width: auto;
+}
+
+.list-container img{
+  float: left;
+  width: 96px;
+  height: 96px;
+  margin-right: 10px;
+}
+
+.list-container h3{
+  text-align: left;
+}
+
+.list-container li {
+  list-style: none;
+  text-align: left;
+}
+
+.list-container input[type="checkbox"]{
+  float: right;
+  height: 25px;
+  width: 25px;
+  margin:0px;
+}
+
+.compare-now-button{
+  position:fixed;
+  bottom: 10px;
+  right:10px;
+}
+
+.compare-now-button button{
+  font-size:16px;
+  font-weight: 100;
+  width: auto;
+  height: 40px;
+}

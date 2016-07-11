@@ -1,0 +1,90 @@
+extends layout
+
+block content
+    nav.top-nav
+      img(class="logo small" src="/images/assets/logos/car-share-logo.png")
+      div.page-nav-links
+        a(href="/") Home
+        a(href="/list") List Page
+      span(id="menuBtn" aria-hidden="true")
+        svg(version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30')
+          rect(width='30' height='3')
+          rect(y='12' width='30' height='3')
+          rect(y='24' width='30' height='3')
+    br
+    div#slide-nav.menu-container
+      div.nav-bar
+        ul
+          li #[button(href="#") item 1] 
+          li #[button(href="#") item 2]
+          li #[button(href="#") item 3]
+        button#add Add Another
+    div.compare-now-button
+      a(href="/compare")
+        button.primary Compare Now
+    div.list-container
+      div.center-column-black
+        h2 Compare services side by side
+        p check up to three services and click the compare button at the bottom to see them side by side 
+      div.features-column
+        div.multi-box-column
+          div(class="box two")
+            input(type="checkbox")
+            h3 Getaround
+            a(href="https://www.getaround.com/" target="_blank")
+              img(src="/images/assets/logos/getaround.png" alt="getaround.com")
+            ul
+              li Gas Included
+              li No Membership Required
+              li Easy Sign up
+            button.secondary Sign Up Now
+          div(class="box two")
+            input(type="checkbox")
+            h3 Turo
+            a(href="https://turo.com/" target="_blank")
+              img(src="/images/assets/logos/turo.png" alt="turo.com")
+            ul
+              li Gas Included
+              li No Membership Required
+              li Easy Sign up
+            button.secondary Sign Up Now
+          div(class="box two")
+            input(type="checkbox")
+            h3 ZipCar
+            a(href="https://www.zipcar.com/" target="_blank")
+              img(src="/images/assets/logos/zipcar.png" alt="zipcar.com")
+            ul
+              li Gas Included
+              li No Membership Required
+              li Easy Sign up
+            button.secondary Sign Up Now
+          div(class="box two")
+            input(type="checkbox")
+            h3 Car2Go
+            a(href="https://www.car2go.com/US/en/" target="_blank")
+              img(src="/images/assets/logos/car2go.png" alt="car2go.com")
+            ul
+              li Gas Included
+              li No Membership Required
+              li Easy Sign up
+            button.secondary Sign Up Now
+          div(class="box two")
+            input(type="checkbox")
+            h3 City Car Share
+            a(href="https://www.gocarma.com/" target="_blank")
+              img(src="/images/assets/logos/cityshare.png" alt="gocarma.com")
+            ul
+              li Gas Included
+              li No Membership Required
+              li Easy Sign up
+            button.secondary Sign Up Now
+          div(class="box two")
+            input(type="checkbox")
+            h3 Enterprise Car Share
+            a(href="https://www.enterprisecarshare.com/us/en/home.html" target="_blank")
+              img(src="/images/assets/logos/enterprise.png" alt="enterprisecarshare.com")
+            ul
+              li Gas Included
+              li No Membership Required
+              li Easy Sign up
+            button.secondary Sign Up Now

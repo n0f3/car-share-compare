@@ -1,94 +1,96 @@
 extends layout
 
 block content
-	div.section-one
-		img.logo(src="/images/assets/logos/car-share-logo.png")
-		div.center-column-black
-			div.multi-box-column
-				div(class="box two")
-					h2 Find a great car share service for you
-					p We've got info. on all the top car share services, compare them side by side using our easy tool. Check out who has the best features to meet your needs. View, compare and sign up, its all here! 
-				div(class="box two")
-					h3 Start Now!
-					p enter your zipcode below 
-					p and start comparing!
-					//- label Enter Zip Code
-					br
-					input.zipInput(placeholder="zipcode" type="number")
-					br
-					button.primary Compare Now
-					br
-					a(href="#section-two")
-						button.secondary More Details
-	div#section-two.section-two
-		div(class="center-column down-arrow")
-			a(href="#section-two")
-				img(src="/images/assets/icons/down4.svg")
-		div.center-column-black
-			h2 The future of car ownership is here, #[u car sharing]
-		div.features-column
-			div.multi-box-column
-				div(class="box three")
-					img(src="/images/assets/icons/2x_steering_wheel.svg")
-					h3 rent from a wide range of great vehicles
-				div(class="box three")
-					img(src="/images/assets/icons/2x_location.svg")
-					h3 cars located conveniently in your neighborhood
-				div(class="box three")
-					img(src="/images/assets/icons/2x_price_tag_usd.svg")
-					h3 lower prices than traditional rental services
-	div#section-three.section-three
-		div(class="center-column down-arrow")
-			a(href="#section-three")
-				img(src="/images/assets/icons/down4.svg")
-		div.center-column
-			h2 Compare and and view information on these top car share services
-		div.features-column
-			div#company-logos.multi-box-column
-				div(class="box three")
-					a(href="https://www.getaround.com/" target="_blank")
-						img(src="/images/assets/logos/getaround.png" alt="getaround.com")
-				div(class="box three")
-					a(href="https://turo.com/" target="_blank")
-						img(src="/images/assets/logos/turo.png" alt="turo.com")
-				div(class="box three")
-					a(href="https://www.zipcar.com/" target="_blank")
-						img(src="/images/assets/logos/zipcar.png" alt="zipcar.com")
-				div(class="box three")
-					a(href="https://www.car2go.com/US/en/" target="_blank")
-						img(src="/images/assets/logos/car2go.png" alt="car2go.com")
-				div(class="box three")
-					a(href="https://www.gocarma.com/" target="_blank")
-						img(src="/images/assets/logos/cityshare.png" alt="gocarma.com")
-				div(class="box three")
-					a(href="https://www.enterprisecarshare.com/us/en/home.html" target="_blank")
-						img(src="/images/assets/logos/enterprise.png" alt="enterprisecarshare.com")
-				div(class="box two")
-					label Enter Zipcode
-					br
-					input.zipInput(placeholder="zipcode" type="number")
-					button.primary Compare Now
-	div.footer-section
-		div.center-column
-			div.multi-box-column
-				div(class="box three")
-					div.social-icons
-						p Find us on social media
-						img(src="/images/assets/icons/square-facebook.svg")
-						img(src="/images/assets/icons/square-twitter.svg")
-						img(src="/images/assets/icons/mail-square-social-media.svg")
-				div(class="box three")
-					div.copyright
-						img(src=src="/images/assets/logos/car-share-logo.png")
-				div(class="box three")
-					div.copyright
-						p 2016 Car Share Compare. All Rights Reserved.
-						//- div.disclaimer
-						//- 	hr
-						//- 	small.
-						//- 		Disclaimer: Car Share compare strives to keep its information accurate and up to date. This information may be different than what you see when you visit a car share, service provider or specific product’s site. All services are presented without warranty. Additionally, this site may be compensated through third party advertisers. However, the results of our comparison service tool, blog content and reviews are based on objective analysis. For more information, please feel free to email with inquiries.
-	div.back-to-top
-		a(href="#")
-			img(src="/images/assets/icons/up4.svg")
-			br
-			span to top
+    div.section-one
+        img.logo(src="/images/assets/logos/car-share-logo.png")
+        div.center-column
+            div.multi-box-column
+                div(class="box two")
+                    h2 Find a great car share service for you
+                    p We've got info. on all the top car share services, compare them side by side using our easy tool. Check out who has the best features to meet your needs. View, compare and sign up, its all here! 
+                div(class="box two")
+                    h3 Start Now!
+                    p enter your zipcode below 
+                    p and start comparing!
+                    //- label Enter Zip Code
+                    //- br
+                    //- input.zipInput(placeholder="zipcode" type="number")
+                    br
+                    a(href="/list") 
+                        button.primary Compare Now
+                    br
+                    a(href="#section-two")
+                        button.secondary More Details
+    div#section-two.section-two
+        div(class="center-column down-arrow")
+            a(href="#section-two")
+                img(src="/images/assets/icons/down4.svg")
+        div.center-column-black
+            h2 The future of car ownership is here, #[u car sharing]
+        div.features-column
+            div.multi-box-column
+                div(class="box three")
+                    img(src="/images/assets/icons/2x_steering_wheel.svg")
+                    h3 rent from a wide range of great vehicles
+                div(class="box three")
+                    img(src="/images/assets/icons/2x_location.svg")
+                    h3 cars located conveniently in your neighborhood
+                div(class="box three")
+                    img(src="/images/assets/icons/2x_price_tag_usd.svg")
+                    h3 lower prices than traditional rental services
+    div#section-three.section-three
+        div(class="center-column down-arrow")
+            a(href="#section-three")
+                img(src="/images/assets/icons/down4.svg")
+        div.center-column
+            h2 Compare and and view information on these top car share services
+        div.features-column
+            div#company-logos.multi-box-column
+                div(class="box three")
+                    a(href="https://www.getaround.com/" target="_blank")
+                        img(src="/images/assets/logos/getaround.png" alt="getaround.com")
+                div(class="box three")
+                    a(href="https://turo.com/" target="_blank")
+                        img(src="/images/assets/logos/turo.png" alt="turo.com")
+                div(class="box three")
+                    a(href="https://www.zipcar.com/" target="_blank")
+                        img(src="/images/assets/logos/zipcar.png" alt="zipcar.com")
+                div(class="box three")
+                    a(href="https://www.car2go.com/US/en/" target="_blank")
+                        img(src="/images/assets/logos/car2go.png" alt="car2go.com")
+                div(class="box three")
+                    a(href="https://www.gocarma.com/" target="_blank")
+                        img(src="/images/assets/logos/cityshare.png" alt="gocarma.com")
+                div(class="box three")
+                    a(href="https://www.enterprisecarshare.com/us/en/home.html" target="_blank")
+                        img(src="/images/assets/logos/enterprise.png" alt="enterprisecarshare.com")
+                div(class="box two")
+                    //- label Enter Zipcode
+                    //- br
+                    //- input.zipInput(placeholder="zipcode" type="number")
+                    a(href="/list") 
+                        button.primary Compare Now
+    div.footer-section
+        div.center-column
+            div.multi-box-column
+                div(class="box three")
+                    div.social-icons
+                        p Find us on social media
+                        img(src="/images/assets/icons/square-facebook.svg")
+                        img(src="/images/assets/icons/square-twitter.svg")
+                        img(src="/images/assets/icons/mail-square-social-media.svg")
+                div(class="box three")
+                    div.copyright
+                        img(src=src="/images/assets/logos/car-share-logo.png")
+                div(class="box three")
+                    div.copyright
+                        p 2016 Car Share Compare. All Rights Reserved.
+                        //- div.disclaimer
+                        //-     hr
+                        //-     small.
+                        //-         Disclaimer: Car Share compare strives to keep its information accurate and up to date. This information may be different than what you see when you visit a car share, service provider or specific product’s site. All services are presented without warranty. Additionally, this site may be compensated through third party advertisers. However, the results of our comparison service tool, blog content and reviews are based on objective analysis. For more information, please feel free to email with inquiries.
+    //- div.back-to-top
+    //-     a(href="#")
+    //-         img(src="/images/assets/icons/up4.svg")
+    //-         br
+    //-         span to top
