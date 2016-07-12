@@ -303,25 +303,6 @@ button:active{
   float: left;
 }
 
-.page-nav-links{
-  float:left;
-  padding:10px;
-  margin-left:20px;
-}
-
-.page-nav-links a{
-  border:none;
-  text-decoration: none;
-  margin:10px;
-  color:white;
-}
-
-.page-nav-links a:hover {
-  /*text-decoration: underline;*/
-  padding-bottom: 16px;
-  border-bottom: 3px solid #00B7FF;
-}
-
 #menuBtn{
   z-index:3;
   /*padding:10px;*/
@@ -393,7 +374,7 @@ button:active{
   padding:0px;
   background-color:white;
 }
-.nav-bar li {
+.nav-bar li{
   list-style-type: none;
   border-bottom:1px solid gray;
   margin:0px;
@@ -404,11 +385,14 @@ button:active{
   width:100%;
   height:45px;
   text-align:left;
-  margin:0px;
-  font-family: 'Raleway', sans-serif;
+  margin-left:0px;
+  cursor: pointer;
+  color:grey;
 }
-.nav-bar button:hover {
-  background-color:#E3F2FD;
+
+.nav-bar button:hover, .nav-bar button.selected {
+  color:white;
+  border-left: 5px solid #00B7FF;
 }
 
 /*------------End Slide Nav--------------*/
@@ -525,7 +509,6 @@ td {
 
 .list-container .box{
   padding: 10px;
-  border: 3px solid rgba(55, 66, 75, .7);
   border-radius: 10px;
   box-shadow: 0 0 1em rgba(55, 66, 75, .7);
 }
@@ -559,15 +542,18 @@ td {
   margin:0px;
 }
 
-.compare-now-button{
+/*.compare-now-button{
   position:fixed;
-  bottom: 10px;
-  right:10px;
-}
+  top: 0px;
+  right:30%;
+}*/
 
 .compare-now-button button{
+  float: right;
+  margin: 5px 80px 0px 0px;
   font-size:16px;
   font-weight: 100;
   width: auto;
   height: 40px;
+  line-height: 0px;
 }

@@ -2,10 +2,14 @@ extends layout
 
 block content
     nav.top-nav
-      img(class="logo small" src="/images/assets/logos/car-share-logo.png")
-      div.page-nav-links
-        a(href="/") Home
-        a(href="/list") List Page
+      a(href="/")
+        img(class="logo small" src="/images/assets/logos/car-share-logo.png")
+      //- div.page-nav-links
+      //-   a(href="/") Home
+      //-   a(href="/list") List Page
+      div.compare-now-button
+        a(href="/compare")
+          button.primary compare
       span(id="menuBtn" aria-hidden="true")
         svg(version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30')
           rect(width='30' height='3')
@@ -15,17 +19,20 @@ block content
     div#slide-nav.menu-container
       div.nav-bar
         ul
-          li #[button(href="#") item 1] 
-          li #[button(href="#") item 2]
-          li #[button(href="#") item 3]
+          li 
+            a(href="/")
+              button Home
+          li 
+            a(href="/list")
+              button.selected List
+          li 
+            a(href="/compare")
+              button Compare
         button#add Add Another
-    div.compare-now-button
-      a(href="/compare")
-        button.primary Compare Now
     div.list-container
       div.center-column-black
-        h2 Compare services side by side
-        p check up to three services and click the compare button at the bottom to see them side by side 
+        h1 Compare services side by side
+        p check up to three services then click the compare button above to see them side by side
       div.features-column
         div.multi-box-column
           div(class="box two")

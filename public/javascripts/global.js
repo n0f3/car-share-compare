@@ -69,3 +69,37 @@ $(document).keydown(function(event) {
     $('#slide-nav').toggleClass("menu-container menu-container-active");
   }
 });
+
+/*$("body").click(function(e) {
+	if ($('#slide-nav').attr('class', 'menu-container-active')) {
+		$('#slide-nav').toggleClass("menu-container menu-container-active");
+		console.log('slide open');
+    	if(e.target.class !=="nav-bar") {
+      		$(".nav-bar").hide();
+		}
+	}
+  });*/
+
+/* --------------------LIST PAGE --------------------- */
+
+/*border: 3px solid rgba(55, 66, 75, .7);*/
+function countHowManyChecked(){
+	var count = 0;
+	$(input[type])
+}
+var count = 0;
+		$('input[type=checkbox]').on('change', function(){
+			if($(this).is(':checked')){
+				count++;
+				if(count < 4){
+					$(this).closest('.box').css('border', '3px solid rgba(55, 66, 75, .7)');
+				}else{
+					count--;
+					alert("cannot compare more than 3 at a time");
+					$(this).prop('checked', false)
+				}
+			}else{
+				count--;
+				$(this).closest('.box').css('border', '');
+			}
+		});
