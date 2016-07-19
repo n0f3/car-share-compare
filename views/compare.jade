@@ -4,16 +4,23 @@ block content
   
   nav.top-nav
     a(href="/")
-        img(class="logo small" src="/images/assets/logos/car-share-logo.png")
+        img(class="logo small" src="/images/assets/logos/carShare_text_logo_white.png")
     //- div.page-nav-links
     //-   a(href="/") Home
     //-   a(href="/list") List Page
       //- a(href="#") Page 2
-    span(id="menuBtn" aria-hidden="true")
+    span(id="openBtn" aria-hidden="true")
       svg(version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30')
         rect(width='30' height='3')
         rect(y='12' width='30' height='3')
         rect(y='24' width='30' height='3')
+    span(id="closeBtn" aria-hidden="true")
+      svg(version="1.1" width='30px' height='30px')
+        line(x1="0" x2="30" y1="0" y2="30" stroke-width="3" stroke="red" fill-opacity="0.5" stroke-opacity="0.8" stroke-linecap="square")
+        line(x1="30" x2="0" y1="0" y2="30" stroke-width="3" stroke="red" fill-opacity="0.5" stroke-opacity="0.8" stroke-linecap="square")
+    div.compare-now-button
+      a(href="/list")
+        button.primary back to list
   br
   div#slide-nav.menu-container
     div.nav-bar
@@ -28,114 +35,116 @@ block content
             a(href="/compare")
               button.selected Compare
         button#add Add Another
-  div(class="table-container scrollable")
+  div(class="table-container")
+    div(class="center-column-black")
+      h1 Compare Page
     table
       tr
-        td
         th
           div.logo-container
             a(href="https://www.getaround.com/" target="_blank")
               img(src="/images/assets/logos/getaround.png" alt="getaround.com")
             p Getaround
             button(class="close" title="remove item") X
-            hr
         th
           div.logo-container
             a(href="https://www.zipcar.com/" target="_blank")
               img(src="/images/assets/logos/zipcar.png" alt="zipcar.com")
             p Zipcar
             button(class="close" title="remove item") X
-            hr
         th
           div.logo-container
             a(href="https://www.enterprisecarshare.com/us/en/home.html" target="_blank")
               img(src="/images/assets/logos/enterprise.png" alt="enterprisecarshare.com")
             p Enterprise CarShare
             button(class="close" title="remove item") X
-            hr
+      tr.tr-feature-head
+        td(colspan="3")
+          div.feature-headings
+            p feature 1
       td
-        div.feature-headings
-          p feature 1
-      td
-          div
+          div.feature-content
             ul
               li Body is light, and the mouthfeel
               li smooth. The palate gathers apple
               li peel, light clove notes and a thin
         td
-          div
+          div.feature-content
             ul
               li Body is light, and the mouthfeel
               li smooth. The palate gathers apple
               li peel, light clove notes and a thin
         td 
-          div
+          div.feature-content
             ul
               li Body is light, and the mouthfeel
               li smooth. The palate gathers apple
               li peel, light clove notes and a thin
-      tr
-        td
+      tr.tr-feature-head
+        td(colspan="3")
           div.feature-headings
             p feature 2
+      tr
         td 
-          div
+          div.feature-content
             ul
               li Body is light, and the mouthfeel
               li smooth. The palate gathers apple
               li peel, light clove notes and a thin
         td 
-          div
+          div.feature-content
               ul
                 li Body is light, and the mouthfeel
                 li smooth. The palate gathers apple
                 li peel, light clove notes and a thin
         td 
-          div
+          div.feature-content
             ul
               li Body is light, and the mouthfeel
               li smooth. The palate gathers apple
               li peel, light clove notes and a thin
-      tr
-        td
+      tr.tr-feature-head
+        td(colspan="3")
           div.feature-headings
             p feature 3
-        td 
-          div
-            ul
-              li Body is light, and the mouthfeel
-              li smooth. The palate gathers apple
-              li peel, light clove notes and a thin
-        td 
-          div
-            ul
-              li Body is light, and the mouthfeel
-              li smooth. The palate gathers apple
-              li peel, light clove notes and a thin
-        td 
-          div
-            ul
-              li Body is light, and the mouthfeel
-              li smooth. The palate gathers apple
-              li peel, light clove notes and a thin
       tr
-        td
+        td 
+          div.feature-content
+            ul
+              li Body is light, and the mouthfeel
+              li smooth. The palate gathers apple
+              li peel, light clove notes and a thin
+        td 
+          div.feature-content
+            ul
+              li Body is light, and the mouthfeel
+              li smooth. The palate gathers apple
+              li peel, light clove notes and a thin
+        td 
+          div.feature-content
+            ul
+              li Body is light, and the mouthfeel
+              li smooth. The palate gathers apple
+              li peel, light clove notes and a thin
+      tr.tr-feature-head
+        td(colspan="3")
           div.feature-headings
             p feature 4
+      tr
         td 
-          div
+          div.feature-content
             ul
               li Body is light, and the mouthfeel
               li smooth. The palate gathers apple
               li peel, light clove notes and a thin
         td 
-          div
+          div.feature-content
             ul
               li Body is light, and the mouthfeel
               li smooth. The palate gathers apple
               li peel, light clove notes and a thin
         td 
-          div
+          div.feature-content
             ul
               li Body is light, and the mouthfeel
               li smooth. The palate gathers apple

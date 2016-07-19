@@ -1,8 +1,7 @@
 html, body {
 	margin:0px;
 	padding:0px;
-	/*font-family: 'Raleway', sans-serif;*/
-	font-family: 'Roboto Slab', serif;
+  font-family: 'Cabin', sans-serif;
 	height: 100%;
 }
 
@@ -29,8 +28,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 button {
-	/*font-family: 'Raleway', sans-serif;*/
-	font-family: 'Roboto Slab', serif;
 	font-size: 24px;
 	font-weight: 700;
 }
@@ -42,20 +39,26 @@ button {
 .logo{
 	padding:25px;
 	margin: 20px 0px 0px 20px;
+  height: 40px;
+  width: 250px;
 	/*border: solid 3px white;
 	border-radius: 5px;*/
+}
+.white {
+  color:white;
+}
+.black {
+  color:black;
 }
 
 .small{
   margin: 0px;
-  padding: 5px;
-  height: 40px;
-  width: 55px;
+  padding: 10px;
+  height: 25px;
+  width: 135px;
 }
 
 .center-column {
-	color:white;
-	/*width:70%;*/
 	margin:auto;
 	text-align: center;
 }
@@ -117,7 +120,7 @@ button {
 }
 
 .three{
-	width: 300px;
+	width: 350px;
 }
 
 .four{
@@ -189,8 +192,8 @@ button:active{
 .section-one {
 	background:
 	linear-gradient(
-      rgba(0, 188, 212, 0.45), 
-     rgba(0, 188, 212, 0.45)
+    rgba(0, 188, 212, 0.9),
+      rgba(0, 188, 212, 0.25)
     ),
 	url(/images/assets/imagery/car-dashboard-in-abstract-city-reflections-picjumbo-com.jpg);
     background-size: cover;
@@ -203,12 +206,17 @@ button:active{
 .section-two {
     width:100%;
     min-height: 400px;
+    /*background-color:rgba(0, 188, 212, 1);*/
 }
 
 .section-three {
 	background-color: #00BCD4;
     width:100%;
     min-height: 500px;
+    /*background: url(/images/assets/imagery/sf.gif);
+    background-repeat: no-repeat;
+    background-position: center;*/
+    /*background-size: cover;*/
 }
 
 #company-logos img:hover{
@@ -303,7 +311,18 @@ button:active{
   float: left;
 }
 
-#menuBtn{
+
+#closeBtn{
+  display:none;
+  position:fixed;
+  right:10px;
+  top:10px;
+  border:none;
+  cursor: pointer;
+  fill: white;
+}
+
+#openBtn{
   z-index:3;
   /*padding:10px;*/
   position:fixed;
@@ -313,6 +332,7 @@ button:active{
   cursor: pointer;
   fill: white;
 }
+
 .menu-container {
   z-index:1;
    position:fixed;
@@ -402,24 +422,26 @@ button:active{
 }
 
 .table-container{
-  margin-top:50px;
+  margin-top:30px;
   /* min-width:550px; */
   text-align:center;
   overflow: scroll;
 }
 .logo-container{
+  padding-top:10px;
   position:relative;
+  color:white;
 }
 .close {
   z-index:0;
   cursor:pointer;
   padding:2px;
   position:absolute;
-  top:-10px;
+  top:0px;
   right:50px;
   font-size:14px;
   color:white;
-  background:#37424b;
+  background:rgba(0, 188, 212, .6);
   border:none;
   width:25px;
   height:25px;
@@ -437,15 +459,32 @@ button:active{
 
 .feature-headings {
   font-size: 20px;
-  /*line-height: 35px;*/
+  position: absolute;
+  left:30%;
+  right:30%;
+}
+
+.tr-feature-head{
+  height:45px;
+  color:white;
+  text-transform: uppercase;
+  line-height: 10px;
+}
+
+.feature-content li{
+  color:white;
 }
 
  table {
   table-layout: fixed;
     margin: 0 auto;
-   /* border: solid 5px grey; */
-   border-collapse: collapse; 
+    background-color: rgba(55, 66, 75, 1);
+    border-radius: 10px;
+    /*padding: 5px;*/
+    box-shadow: 0 0 1em rgba(55, 66, 75, .7);
   }
+
+
 
 ul {
   margin-top:0px;
@@ -464,7 +503,13 @@ tr, th {
 }
 
 tr:nth-child(even) {
-    background-color: rgba(0, 188, 212, .2);
+    /*background-color: rgba(0, 188, 212, .2);*/
+    /*background-color: rgba(55, 66, 75, 1);*/
+    /*background: -webkit-linear-gradient(left top, grey, #37424b); /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(bottom right, grey, #37424b); /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(bottom right, grey, #37424b); /* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(to bottom right, grey, #37424b);*/
+    background-color: rgba(0, 188, 212, .4);
 }
 
 th {
@@ -472,15 +517,6 @@ th {
   /*border-top:solid 5px grey; 
   border-right: solid 5px grey; 
   border-left: solid 5px grey;*/
-}
-
-tr:last-of-type {
-  /*border-bottom: solid 5px grey; */
-}
-
-td:first-of-type{
-  line-height: 60px;
-  min-width: 80px;
 }
 
 td {
@@ -508,6 +544,7 @@ td {
 }
 
 .list-container .box{
+  background-color: #F0F3F4;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 0 1em rgba(55, 66, 75, .7);
@@ -550,7 +587,7 @@ td {
 
 .compare-now-button button{
   float: right;
-  margin: 5px 80px 0px 0px;
+  margin: 5px 70px 0px 0px;
   font-size:16px;
   font-weight: 100;
   width: auto;

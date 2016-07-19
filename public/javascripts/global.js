@@ -57,18 +57,42 @@ $(document).on('click',".close", function(){
   console.log($("th:nth-of-type(" + closeIndex + ")" + " " + "td:nth-of-type(" + closeIndex + ")"));
 }); */
 
-$('#menuBtn').click(function() {
+/*----------------------------------------------- menu slider ------------------------------------*/
+
+$('#closeBtn').click(function(){
+  $("#openBtn").show();
+      $("#closeBtn").hide();
+  $('#slide-nav').toggleClass("menu-container menu-container-active");
+});
+
+$('#openBtn').click(function(e){
+  /* console.log(e.target.tagName) */
+      $("#openBtn").hide();
+      $("#closeBtn").show();
+      $('#slide-nav').toggleClass("menu-container menu-container-active");
+  
+  $(document).click(function(e) { //set event handler for click function and capture event param 
+        if(e.target.id !== 'openBtn' //we want to toggle(close) the slide menu for any event not related to slide menu
+          && e.target.tagName !== 'BUTTON' && e.target.tagName !== 'svg' && e.target.tagName !== 'rect' && e.target.tagName !== 'line'){ // don't close the slide menu for events: menuBtn, form, INPUT & BUTTON
+          $('#slide-nav').removeClass("menu-container menu-container-active").addClass("menu-container");
+          $("#closeBtn").hide();
+          $("#openBtn").show();
+        }
+    });
+});
+
+/*----------------------------------------------- End menu slider ------------------------------------*/
+
+/*$('#menuBtn').click(function() {
   $('#slide-nav').toggleClass("menu-container menu-container-active");
 });
 
 var ESC_KEYCODE = 27;
 $(document).keydown(function(event) {
-  /*event.preventDefault();*/
-  /*console.log(event.keyCode);*/
   if (event.keyCode === ESC_KEYCODE && $('#slide-nav').attr('class', 'menu-container-active')) {
     $('#slide-nav').toggleClass("menu-container menu-container-active");
   }
-});
+});*/
 
 /*$("body").click(function(e) {
 	if ($('#slide-nav').attr('class', 'menu-container-active')) {
@@ -85,21 +109,24 @@ $(document).keydown(function(event) {
 /*border: 3px solid rgba(55, 66, 75, .7);*/
 function countHowManyChecked(){
 	var count = 0;
-	$(input[type])
+	$(input[type]);
 }
 var count = 0;
 		$('input[type=checkbox]').on('change', function(){
 			if($(this).is(':checked')){
 				count++;
 				if(count < 4){
-					$(this).closest('.box').css('border', '3px solid rgba(55, 66, 75, .7)');
+					$(this).closest('.box').css('border', '3px solid rgba(0, 188, 212, .8)');//;  rgba(55, 66, 75, .7)
 				}else{
 					count--;
 					alert("cannot compare more than 3 at a time");
-					$(this).prop('checked', false)
+					$(this).prop('checked', false);
 				}
 			}else{
 				count--;
 				$(this).closest('.box').css('border', '');
 			}
 		});
+
+
+/* ----------------------------------------------GET JSON DATA LIST PAGE --------------------------------------- */

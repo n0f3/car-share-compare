@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 /*var routes = require('./routes/index');*/
 /*var list = require('./routes/list');*/
@@ -12,10 +13,16 @@ var bodyParser = require('body-parser');
 /*var compare = require('./routes/compare');
 var users = require('./routes/users');*/
 
-
-
 //set the port to run on one that is specified or 5000
 app.set('port', (process.env.PORT || 5000));
+
+//set connection string to local db
+var localMongoUri = 'mongodb://127.0.0.1/Services';
+mongoose.connect(localMongoUri);
+var db = mongoose.connection;
+db.on('error', function() {
+  throw new Error('unable to connect to database at ' + mongoUri);
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -67,9 +74,9 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
 /*module.exports = app;*/
-
+//require models file
+require('./models/Services');
 //require routes file for all routing
 require('./routes')(app);
 
