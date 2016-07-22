@@ -12,6 +12,7 @@ var ServiceSchema = new Schema({
 		signUp: String,
 		terms: String
 	},
+	logo: String,
 	features:{
 		freeGas: String,
 		membershipFee: String,

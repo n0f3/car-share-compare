@@ -53,8 +53,8 @@ button {
 
 .small{
   margin: 0px;
-  padding: 10px;
-  height: 25px;
+  padding: 15px 10px;
+  height: 20px;
   width: 135px;
 }
 
@@ -420,9 +420,14 @@ button:active{
 /*   z-index:0; */
 /*   overflow: auto; */
 }
-
+#compare-heading{
+  position: absolute;
+  right:10px;
+  left:10px;
+  margin-top:35px;
+}
 .table-container{
-  margin-top:30px;
+  margin-top:90px;
   /* min-width:550px; */
   text-align:center;
   overflow: scroll;
@@ -540,7 +545,7 @@ td {
 
 .list-container{
   margin-top: 40px;
-  font-size: 12px;
+  /*font-size: 12px;*/
 }
 
 .list-container .box{
@@ -570,6 +575,7 @@ td {
 .list-container li {
   list-style: none;
   text-align: left;
+  font-size: .75em;
 }
 
 .list-container input[type="checkbox"]{

@@ -36,70 +36,71 @@ block content
               button Compare
         button#add Add Another
   if(typeof ServiceData !== 'undefined')
-    each service, i in ServiceData
-      div.list-container
-        div.center-column-black
-          h1 Compare services side by side
-          p check up to three services then click the compare button above to see them side by side
-        div.features-column
-          div.multi-box-column
-            div(class="box two")
-              input(type="checkbox")
-              h3 Getaround
-              a(href="https://www.getaround.com/" target="_blank")
-                img(src="/images/assets/logos/getaround.png" alt="getaround.com")
-              ul
-                li Gas Included
-                li No Membership Required
-                li Easy Sign up
-              button.secondary Sign Up Now
+    div.list-container
+      div.center-column-black
+        h1 Compare services side by side
+        p check up to three services then click the compare button above to see them side by side
+      div.features-column
+        div.multi-box-column
+          each service, i in ServiceData
             div(class="box two")
               input(type="checkbox")
               h3 #{service.name}
-              a(href="https://turo.com/" target="_blank")
-                img(src="/images/assets/logos/turo.png" alt="turo.com")
+              a(href=service.url.home target="_blank")
+                img(src=service.logo alt="getaround.com")
               ul
                 li #{service.features.membershipFee}
-                li #{service.features.offersPickup}
+                li #{service.features.freeGas}
                 li Easy Sign up
-              button.secondary Sign Up Now
-            div(class="box two")
-              input(type="checkbox")
-              h3 Zipcar
-              a(href="https://www.zipcar.com/" target="_blank")
-                img(src="/images/assets/logos/zipcar.png" alt="zipcar.com")
-              ul
-                li Gas Included
-                li No Membership Required
-                li Easy Sign up
-              button.secondary Sign Up Now
-            div(class="box two")
-              input(type="checkbox")
-              h3 Car2Go
-              a(href="https://www.car2go.com/US/en/" target="_blank")
-                img(src="/images/assets/logos/car2go.png" alt="car2go.com")
-              ul
-                li Gas Included
-                li No Membership Required
-                li Easy Sign up
-              button.secondary Sign Up Now
-            div(class="box two")
-              input(type="checkbox")
-              h3 City Car Share
-              a(href="https://www.gocarma.com/" target="_blank")
-                img(src="/images/assets/logos/cityshare.png" alt="gocarma.com")
-              ul
-                li Gas Included
-                li No Membership Required
-                li Easy Sign up
-              button.secondary Sign Up Now
-            div(class="box two")
-              input(type="checkbox")
-              h3 Enterprise Car Share
-              a(href="https://www.enterprisecarshare.com/us/en/home.html" target="_blank")
-                img(src="/images/assets/logos/enterprise.png" alt="enterprisecarshare.com")
-              ul
-                li Gas Included
-                li No Membership Required
-                li Easy Sign up
-              button.secondary Sign Up Now
+              a(href=service.url.signUp target="_blank")
+                button.secondary Sign Up Now
+            //- div(class="box two")
+            //-   input(type="checkbox")
+            //-   h3 #{service.name}
+            //-   a(href="https://turo.com/" target="_blank")
+            //-     img(src="/images/assets/logos/turo.png" alt="turo.com")
+            //-   ul
+            //-     li #{service.features.membershipFee}
+            //-     li #{service.features.offersPickup}
+            //-     li Easy Sign up
+            //-   button.secondary Sign Up Now
+            //- div(class="box two")
+            //-   input(type="checkbox")
+            //-   h3 Zipcar
+            //-   a(href="https://www.zipcar.com/" target="_blank")
+            //-     img(src="/images/assets/logos/zipcar.png" alt="zipcar.com")
+            //-   ul
+            //-     li Gas Included
+            //-     li No Membership Required
+            //-     li Easy Sign up
+            //-   button.secondary Sign Up Now
+            //- div(class="box two")
+            //-   input(type="checkbox")
+            //-   h3 Car2Go
+            //-   a(href="https://www.car2go.com/US/en/" target="_blank")
+            //-     img(src="/images/assets/logos/car2go.png" alt="car2go.com")
+            //-   ul
+            //-     li Gas Included
+            //-     li No Membership Required
+            //-     li Easy Sign up
+            //-   button.secondary Sign Up Now
+            //- div(class="box two")
+            //-   input(type="checkbox")
+            //-   h3 City Car Share
+            //-   a(href="https://www.gocarma.com/" target="_blank")
+            //-     img(src="/images/assets/logos/cityshare.png" alt="gocarma.com")
+            //-   ul
+            //-     li Gas Included
+            //-     li No Membership Required
+            //-     li Easy Sign up
+            //-   button.secondary Sign Up Now
+            //- div(class="box two")
+            //-   input(type="checkbox")
+            //-   h3 Enterprise Car Share
+            //-   a(href="https://www.enterprisecarshare.com/us/en/home.html" target="_blank")
+            //-     img(src="/images/assets/logos/enterprise.png" alt="enterprisecarshare.com")
+            //-   ul
+            //-     li Gas Included
+            //-     li No Membership Required
+            //-     li Easy Sign up
+            //-   button.secondary Sign Up Now
