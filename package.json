@@ -2,9 +2,6 @@
   "name": "car-share-compare",
   "version": "1.0.0",
   "description": "compare car share services",
-  "directories": {
-    "doc": "docs"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -34,3 +31,4 @@
   "devDependencies": {
     "gulp": "^3.9.1"
   }
+}
