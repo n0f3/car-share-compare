@@ -5,10 +5,6 @@ block content
   nav.top-nav
     a(href="/")
         img(class="logo small" src="/images/assets/logos/carShare_text_logo_white.png")
-    //- div.page-nav-links
-    //-   a(href="/") Home
-    //-   a(href="/list") List Page
-      //- a(href="#") Page 2
     span(id="openBtn" aria-hidden="true")
       svg(version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30')
         rect(width='30' height='3')
@@ -16,11 +12,11 @@ block content
         rect(y='24' width='30' height='3')
     span(id="closeBtn" aria-hidden="true")
       svg(version="1.1" width='30px' height='30px')
-        line(x1="0" x2="30" y1="0" y2="30" stroke-width="3" stroke="red" fill-opacity="0.5" stroke-opacity="0.8" stroke-linecap="square")
-        line(x1="30" x2="0" y1="0" y2="30" stroke-width="3" stroke="red" fill-opacity="0.5" stroke-opacity="0.8" stroke-linecap="square")
+        line(x1="0" x2="30" y1="0" y2="30" stroke-width="3" stroke="white")
+        line(x1="30" x2="0" y1="0" y2="30" stroke-width="3" stroke="white")
     div.compare-now-button
-      a(href="/compare")
-        button.primary compare
+      //a(href="/compare")
+      button#goToComparePage.primary compare
   br
   div#slide-nav.menu-container
     div.nav-bar
@@ -31,29 +27,43 @@ block content
           li 
             a(href="/list")
               button.selected List
-          li 
-            a(href="/compare")
-              button Compare
-        button#add Add Another
+        div.nav-footer
+         div.social-icons
+          p Find us on social media
+          img(src="/images/assets/icons/square-facebook.svg")
+          img(src="/images/assets/icons/square-twitter.svg")
+          img(src="/images/assets/icons/mail-square-social-media.svg")
+          div.copyright
+            p © 2016 Car Share Compare, All Rights Reserved.
+        //- button#add Add Another
   if(typeof ServiceData !== 'undefined')
     div.list-container
       div.center-column-black
-        h1 Compare services side by side
+        h1 Compare side by side
         p check up to three services then click the compare button above to see them side by side
       div.features-column
         div.multi-box-column
           each service, i in ServiceData
-            div(class="box two")
-              input(type="checkbox")
+            div(id="#{service._id}" class="box two")
+              input(id="listChk-#{service._id}" type="checkbox")
+              label(for="listChk-#{service._id}")
+                span
               h3 #{service.name}
               a(href=service.url.home target="_blank")
-                img(src=service.logo alt="getaround.com")
+                img(src=service.logo alt="#{service.name}")
               ul
                 li #{service.features.membershipFee}
                 li #{service.features.freeGas}
-                li Easy Sign up
-              a(href=service.url.signUp target="_blank")
-                button.secondary Sign Up Now
+                li #{service.features.membershipCostPerMonth} dollars per month
+              div.action-button-container
+                a(class="plain-link" href=service.url.signUp target="_blank") more details >
+                a(href=service.url.signUp target="_blank")
+                  button.secondary Sign Up Now
+  else
+    div.center-column-black
+      hr
+      h1 uh oh, something went wrong. Sorry about that :(
+      h3 try refreshing the page
             //- div(class="box two")
             //-   input(type="checkbox")
             //-   h3 #{service.name}

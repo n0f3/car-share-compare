@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	
+
+	enabledDisableCompareBtn();
 });
 
 $("#section-two > div.center-column.down-arrow > a").click(function(){
@@ -73,7 +74,7 @@ $('#openBtn').click(function(e){
   
   $(document).click(function(e) { //set event handler for click function and capture event param 
         if(e.target.id !== 'openBtn' //we want to toggle(close) the slide menu for any event not related to slide menu
-          && e.target.tagName !== 'BUTTON' && e.target.tagName !== 'svg' && e.target.tagName !== 'rect' && e.target.tagName !== 'line'){ // don't close the slide menu for events: menuBtn, form, INPUT & BUTTON
+          && e.target.tagName !== 'BUTTON' && e.target.tagName !== 'svg' && e.target.tagName !== 'rect' && e.target.tagName !== 'line' && e.target.tagName !== 'IMG'){ // don't close the slide menu for events: menuBtn, form, INPUT & BUTTON
           $('#slide-nav').removeClass("menu-container menu-container-active").addClass("menu-container");
           $("#closeBtn").hide();
           $("#openBtn").show();
@@ -110,26 +111,98 @@ $(document).keydown(function(event) {
 
 /* --------------------LIST PAGE --------------------- */
 
-function countHowManyChecked(){
-	var count = 0;
-	$(input[type]);
+var srvObj = {
+  count: 0, 
+  selSrv: []
+};
+
+var restoredSession;
+
+function setSessionObject(obj){
+  return sessionStorage.setItem('session', JSON.stringify(obj));
 }
-var count = 0;
-		$('input[type=checkbox]').on('change', function(){
-			if($(this).is(':checked')){
-				count++;
-				if(count < 4){
-					$(this).closest('.box').css('border', '3px solid rgba(0, 188, 212, .8)');//;  rgba(55, 66, 75, .7)
-				}else{
-					count--;
-					alert("cannot compare more than 3 at a time");
-					$(this).prop('checked', false);
-				}
-			}else{
-				count--;
-				$(this).closest('.box').css('border', '');
-			}
-		});
+
+function getSessionObj(){
+  return restoredSession = JSON.parse(sessionStorage.getItem('session'));
+}
+
+function enabledDisableCompareBtn(){
+  if(srvObj.selSrv.length > 1){
+    $('#goToComparePage').prop('disabled',false);
+  }else
+    $('#goToComparePage').prop('disabled',true);
+};
+
+function addRemoveService(serviceName){
+  if(srvObj.selSrv.includes(serviceName)){
+    var index = srvObj.selSrv.indexOf(serviceName);
+    if(index >= 0){
+      srvObj.selSrv.splice(index, 1);
+    }
+  }else{
+    srvObj.selSrv.push(serviceName);
+  }
+    console.log(srvObj.selSrv);
+    //srvObj.selSrv = serviceList;
+    setSessionObject(srvObj);
+    return srvObj;
+};
+
+$('input[type=checkbox]').on('change', function(){
+  //console.log(srvObj.selSrv.length+1);
+	if($(this).is(':checked')){
+		srvObj.count++;
+    addRemoveService(this.parentNode.id);
+    enabledDisableCompareBtn();
+		if(srvObj.selSrv.length < 5){
+			$(this).closest('.box').css('border', '3px solid rgba(0, 188, 212, .8)');//;  rgba(55, 66, 75, .7)
+		}else{
+			srvObj.count--;
+      addRemoveService(this.parentNode.id);
+      enabledDisableCompareBtn();
+			alert("cannot compare more than 4 at a time");
+			$(this).prop('checked', false);
+		}
+	}else{
+		srvObj.count--;
+    addRemoveService(this.parentNode.id);
+    enabledDisableCompareBtn();
+		$(this).closest('.box').css('border', '');
+	}
+});
+/* ----------------------------------------------SEND JSON DATA TO COMPARE PAGE --------------------------------------- */
+
+$('#goToComparePage').on('click', function(){
+  $.ajax({
+    type: 'POST',
+    url: '/compare',
+    data: srvObj
+  }).done(function(results, textStatus){
+    console.log("Ajax returned: " + textStatus);
+    $.ajax({
+      type: 'GET',
+      url: '/compare'
+    }).done(function(){
+      window.location = '/compare';
+    });
+  }).fail(function(jqXHR, textStatus, err){
+    console.log("Not Sent " + textStatus + " " + err);
+  });
+});
 
 
-/* ----------------------------------------------GET JSON DATA LIST PAGE --------------------------------------- */
+/* ---------------------------------------------- SAVE SELECTED SERVICES IN SESSION  --------------------------------------- */
+//var sessData = sessionStorage.getItem('sessObj');
+$(window).on("load",function(){
+  if(this.location.pathname === '/list'){
+    console.log("Session Data is " + JSON.stringify(getSessionObj()));
+    if(restoredSession && restoredSession.selSrv[0]){
+      console.log("session is restored");
+      srvObj = restoredSession;
+      for(var i = 0; i < srvObj.selSrv.length; i++){
+        $("#listChk-"+srvObj.selSrv[i]).prop('checked', true).closest('.box').css('border', '3px solid rgba(0, 188, 212, .8)');
+      }
+      enabledDisableCompareBtn();
+    }
+  }
+});

@@ -1,4 +1,6 @@
 //index controller
+var express = require('express');
+var app = express();
 var mongoose = require('mongoose');
 var ServiceData = mongoose.model('ServiceData');
 //get the index page when user navigates to '/' route
@@ -7,7 +9,23 @@ exports.getIndex = function(req, res) {
 };
 
 exports.getComparePage = function(req, res) {
-	return res.render('compare');
+	return res.render('compare', {"services": app.locals.services });
+};
+
+exports.postCompareData = function(req, res){
+	var serviceName = req.body['selSrv[]'];
+	console.log(serviceName);
+	ServiceData.find({'_id': { $in: serviceName }}, function(err, results){
+		if(err){
+			console.log("Error is " +err);
+			res.send((err === null) ? { msg: ''} : { msg: 'Error, ' + err});		
+		}else{
+			app.locals.services = results;
+	  		//console.log("results are " + results);
+			//res.render('compare', {"services":results});
+			res.end();
+		}
+	});
 };
 
 exports.getListPage = function(req, res) {
@@ -16,7 +34,7 @@ exports.getListPage = function(req, res) {
 
 exports.findAllServiceData = function(req, res) {
   ServiceData.find({}, function(err, results) {
-  	console.log(results);
+  	//console.log("results are " + results);
     return res.render('list', { "ServiceData": results });
   });
 };
@@ -32,7 +50,7 @@ exports.importData = function(req, res) {
 		},
 		"logo": "/images/assets/logos/turo.png",
 		"features":{
-			"freeGas": null,
+			"freeGas": "Gas not included",
 			"membershipFee": "No membership fees",
 			"offersPickup": "offers pickup from airport or other locations",
 			"membershipCostPerMonth": 20,
