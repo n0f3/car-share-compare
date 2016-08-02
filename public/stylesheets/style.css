@@ -1,8 +1,8 @@
 html, body {
-	margin:0px;
-	padding:0px;
+  margin:0px;
+  padding:0px;
   font-family: 'Cabin', sans-serif;
-	height: 100%;
+  height: 100%;
 }
 
 /*------------------------------------ Start Globals -----------------------------------*/
@@ -21,13 +21,13 @@ a.plain-link:hover{
 }
 
 input {
-	font-family: verdana;
-	font-size: 24px;
-	font-weight: 500;
-	border:none;
-	margin: 0px 5px;
-	width: 100px;
-	display: inline;
+  font-family: verdana;
+  font-size: 24px;
+  font-weight: 500;
+  border:none;
+  margin: 0px 5px;
+  width: 100px;
+  display: inline;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -38,8 +38,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 button {
   font-family: 'Cabin', sans-serif;
-	font-size: 24px;
-	font-weight: 700;
+  font-size: 24px;
+  font-weight: 700;
   border-radius: 3px;
   padding: 10px;
 }
@@ -49,12 +49,12 @@ button {
 /*------------------------------------ Start Landing Page -----------------------------------*/
 
 .logo{
-	padding:25px;
-	margin: 20px 0px 0px 20px;
+  padding:25px;
+  margin: 20px 0px 0px 20px;
   height: 40px;
   width: 250px;
-	/*border: solid 3px white;
-	border-radius: 5px;*/
+  /*border: solid 3px white;
+  border-radius: 5px;*/
 }
 .white {
   color:white;
@@ -71,42 +71,42 @@ button {
 }
 
 .center-column {
-	margin:auto;
-	text-align: center;
+  margin:auto;
+  text-align: center;
 }
 
 .center-column-black {
-	color:black;
+  color:black;
   width:60%;
-	margin:auto;
-	text-align: center;
+  margin:auto;
+  text-align: center;
   padding: 0px 10px 0px 10px;
 }
 
 .features-column{
-	width:90%;
-	margin:auto;
-	text-align: center;
+  width:90%;
+  margin:auto;
+  text-align: center;
 }
 
 .center-column.down-arrow{
-	/*margin-top: -25px;*/
-	text-align: center;
-	background: #fff;
-	width: 50px;
-	height: 50px;
-	opacity: .5;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
+  /*margin-top: -25px;*/
+  text-align: center;
+  background: #fff;
+  width: 50px;
+  height: 50px;
+  opacity: .5;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .center-column.down-arrow:hover{
-	opacity: 1;
+  opacity: 1;
 }
 
 
 .multi-box-column {
-	padding: 0;
+  padding: 0;
   margin: 0;
   list-style: none;
   display: -webkit-box;
@@ -128,73 +128,73 @@ button {
 }
 
 .two{
- 	width: 450px;
+  width: 450px;
 }
 
 .three{
-	width: 350px;
+  width: 350px;
 }
 
 .four{
-	width: 200px;
+  width: 200px;
 }
 
 .six{
-	width: 100px;
+  width: 100px;
 }
 
 .box:nth-of-type(2){
-	text-align: center;
+  text-align: center;
 }
 
 .box p {
-	margin: 0px;
+  margin: 0px;
 }
 .box h2 {
-	margin: 0px 0px 10px 0px;
+  margin: 0px 0px 10px 0px;
 }
 
 .box h3 {
-	margin: 0px 0px 10px 0px;
+  margin: 0px 0px 10px 0px;
 }
 
 .box button {
-	width:200px;
+  width:200px;
   margin-bottom: 10px;
 }
 
 .box input {
-	width:200px;
-	height: 50px;
-	margin-bottom: 10px;
+  width:200px;
+  height: 50px;
+  margin-bottom: 10px;
 }
 
 .box img {
-	height: 128px;
-	width: 128px;
+  height: 128px;
+  width: 128px;
 }
 
 button.primary {
-	border: none;
-	color: white;
-	background-color: #FF5252;
+  border: none;
+  color: white;
+  background-color: #FF5252;
   cursor: pointer;
 }
 button.secondary {
-	background: none;
-	color: #FF5252;
-	border: solid 2px #FF5252;
-	font-weight: bold;
+  background: none;
+  color: #FF5252;
+  border: solid 2px #FF5252;
+  font-weight: bold;
   cursor: pointer;
 }
 
 button:hover{
-	color:white;
-	background-color: #FF7070;
+  color:white;
+  background-color: #FF7070;
 }
 
 button:active{
-	background-color: #E13434;
+  background-color: #E13434;
 }
 
 button:disabled{
@@ -204,15 +204,15 @@ button:disabled{
 }
 
 .section-one>h1 {
-	margin:0px;
+  margin:0px;
 }
 .section-one {
-	background:
-	linear-gradient(
+  background:
+  linear-gradient(
     rgba(0, 188, 212, 0.9),
       rgba(0, 188, 212, 0.25)
     ),
-	url(/images/assets/imagery/car-dashboard-in-abstract-city-reflections-picjumbo-com.jpg);
+  url(/images/assets/imagery/car-dashboard-in-abstract-city-reflections-picjumbo-com.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     width:100%;
@@ -227,7 +227,7 @@ button:disabled{
 }
 
 .section-three {
-	background-color: #00BCD4;
+  background-color: #00BCD4;
     width:100%;
     min-height: 500px;
     /*background: url(/images/assets/imagery/sf.gif);
@@ -237,58 +237,58 @@ button:disabled{
 }
 
 #company-logos img:hover{
-	transform: translate(0px, 5px);
+  transform: translate(0px, 5px);
   -webkit-transform: translate(0px, 5px);
 }
 
 .footer-section{
-	width: 100%;
-	font-size: 12px;
-	/*border-top: solid 1px grey;*/
-	padding-top:20px;
-	background: linear-gradient(45deg,#263238 50%,#37424b 50%);
+  width: 100%;
+  font-size: 12px;
+  /*border-top: solid 1px grey;*/
+  padding-top:20px;
+  background: linear-gradient(45deg,#263238 50%,#37424b 50%);
 }
 
 .social-icons{
-	font-size: 14px;
-	margin:0px 20px 0px 20px;
+  font-size: 14px;
+  margin:0px 20px 0px 20px;
 }
 
 .copyright{
-	font-size: 14px;
-	/*margin:0px 20px 0px 10px;*/
+  font-size: 14px;
+  /*margin:0px 20px 0px 10px;*/
   padding: 10px;
 }
 
 .copyright img {
-	width: 80px;
-	height: 60px;
-	line-height: 20px;
+  width: 80px;
+  height: 60px;
+  line-height: 20px;
 }
 
 .social-icons img{
-	margin-right: 5px;
-	width: 40px;
-	height: 40px;
-	text-align: center;
+  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
 }
 
 .disclaimer {
-	width: 80%;
-	font-size: 12px;
-	margin-left: 10px;
+  width: 80%;
+  font-size: 12px;
+  margin-left: 10px;
 }
 
 .back-to-top{
-	position: fixed;
-	bottom: 10px;
-	right:10px;
-	text-align: center;
-	font-weight: 700;
+  position: fixed;
+  bottom: 10px;
+  right:10px;
+  text-align: center;
+  font-weight: 700;
 }
 .back-to-top:hover{
-	background-color: white;
-	border-radius: 5px;
+  background-color: white;
+  border-radius: 5px;
 }
 
 
@@ -296,12 +296,12 @@ button:disabled{
 
 @media only screen and (max-width: 500px) { 
   .section-one > .logo{
-		height:75px;
-	}
-	.back-to-top img{
-		height: 30px;
-		width: 30px;
-	}
+    height:75px;
+  }
+  .back-to-top img{
+    height: 30px;
+    width: 30px;
+  }
 }
 
 /*------------------------------------ End Mobile -----------------------------------*/

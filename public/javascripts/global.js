@@ -96,9 +96,6 @@ $(document).keydown(function(event) {
 /*$('#menuBtn').click(function() {
   $('#slide-nav').toggleClass("menu-container menu-container-active");
 });
-
-
-
 /*$("body").click(function(e) {
 	if ($('#slide-nav').attr('class', 'menu-container-active')) {
 		$('#slide-nav').toggleClass("menu-container menu-container-active");

@@ -1,0 +1,151 @@
+extends layout
+
+block content
+	nav(class="navbar navbar-default navbar-static-top")
+		div#nav-content.container
+			div.navbar-header
+				button(class="navbar-toggle collapsed", data-toggle="collapse", data-target="#navbar-collapse-1", aria-expanded="false")
+					span(class="sr-only") Toggle Navigation
+					span(class="icon-bar")
+					span(class="icon-bar")
+					span(class="icon-bar")
+				a#brandBtn(class="navbar-brand", href="/") Jeremy Levy
+			div(class="collapse navbar-collapse", id="navbar-collapse-1")
+				ul(class="nav navbar-nav")
+					li
+						a(class="btn-nav", href="/") Home 
+					li.active
+						a(class="btn-nav", href="/favorites") Favorites
+					li
+						a(class="btn-nav", href="/contact") Contact Me
+					//- ul(class="nav navbar-nav navbar-right")
+					//- li
+					//- 	div.nav-bar-login
+					//- 		button(class="btn btn-secondary btn-lg", data-toggle="modal", data-target="#learnModal") ?
+	section#body-content.container
+		div.row
+			div.col-md-6
+				//- ul(class="nav nav-tabs")
+				//- 	li(role="presentation" class="active") #[a(href="#searchTab" data-toggle="tab") Search]
+				//- 	li(role="presentation") #[a(href="#favTableTab" data-toggle="tab") Favorites List]
+				p #{msg}
+				div#formAlert(class="alert alert-danger", role="alert")
+					span(class="glyphicon glyphicon-exclamation-sign", aria-hidden="true")
+					span#alertTxt(class="sr-only") Error: 
+					|&nbsp;Please Enter A Movie title
+				div.row
+					div.col-md-12
+						div#learnModal(class="modal fade", role="dialog")
+							div.modal-dialog
+								div.modal-content
+									div.modal-header
+										button(type="button", class="close", data-dismiss="modal")
+											span(class="glyphicon glyphicon-remove-circle" aria-hidden="true", style="color:red")
+										h4(class="modal-title", style="color:#ff3300;") How This Works?
+									div.modal-body
+										p Use the search bar to find your favorite movies, actors or tv shows
+										p You can save the movie for later by clicking the heart button or like it using the thumbs up button.
+										p The favorites table to the right of the page will hold your saved results, click the name of the entry to quickly see it's details.
+									div.modal-footer
+										div.row
+											div.col-sm-4
+										p If you find any bugs or have any suggestions let me know... 
+										a(class="btn btn-default" href="/contact")
+											span(class="glyphicon glyphicon-envelope", aria-hidden="true")
+
+												
+						form#formAddMovie(class="form-group-lg")
+							div(class="form-group has-feedback")
+								//- label(class="control-label", for="inputMovieTitle") Title:
+								div.row
+									div.col-md-12
+										h3 Search movie #[div.demo-modal #[a#learnMoreBtn(class="btn btn-secondary btn-lg", data-toggle="modal", data-target="#learnModal") #[span(class="glyphicon glyphicon-question-sign", aria-hidden="true")]]]
+								input#inputFavMovieTitle(type="name", class="form-control", placeholder="Title", aria-describedby="inputTitleStatus", name="title")
+								span(id="form-feedback-title", class="glyphicon glyphicon-remove form-control-feedback", aria-hidden="true")
+								span(id="inputTitleStatus", class="sr-only")
+								br
+								button#favBtnSubmit(class="btn btn-primary btn-lg") submit
+						div.row
+							div.col-md-8
+								div#likeBtnBar
+									a#favBtn(class="btn btn-secondary btn-lg")
+										span(class="glyphicon glyphicon-heart", aria-hidden="true")
+									a#likeBtn(class="btn btn-secondary btn-lg")
+										span(class="glyphicon glyphicon-thumbs-up", aria-hidden="true")
+								div#posterDiv
+									a#posterLink(href="", target="_blank")
+										img#resPoster(src="")
+							//- div.col-md-4
+							//- 	div.posterImg		
+							div.col-md-4
+								div.featureHeadings
+									h3#favTitleHeading
+									h4#favMetaScoreHeading 
+										strong| Metascore&nbsp; 
+									h4#favImdbRatingHeading 
+										strong| IMDB&nbsp;
+									h4#favImdbVotesHeading 
+										strong| IMDB Votes&nbsp;
+				div.row
+					div.col-md-8
+						h3#resPlot #[strong Movie Plot]
+							&nbsp;#[span(class="glyphicon glyphicon-chevron-up" aria-hidden="true")]
+							hr
+							p#plotText
+						h3#moreDetailsBtn #[strong More Details]
+							&nbsp;#[span(class="glyphicon glyphicon-chevron-up" aria-hidden="true")]
+						h4#allDetails
+							ul
+			div.col-md-6
+				if(typeof favlist !== 'undefined')
+					h3 Favorites
+					#favTable-container
+						table#favTable(class="table table-hover")
+							thead
+								tr
+									th Titles
+									th Watched
+									th Likes
+									th Remove
+										tbody#favlist
+										each fav, i in favlist
+											tr
+												td
+													a(href="#" id="#{fav.id}", class="favoriteTitle")= fav.title
+												td
+													if(fav.isWatched == true)
+														input(type="checkbox", checked)
+													else
+														input(type="checkbox")
+												td
+													p(id="")= fav.likes
+												td
+													div.hover-btn
+													a(href="#", rel="#{fav.id}" type="button", class="close")
+														span#trash(class="glyphicon glyphicon-trash", aria-hidden="true", style="color:red;")
+														span(class="sr-only") Close
+	//- footer#footer-container.footer
+	//- 	div.container
+	//- 		div.row
+	//- 			div.col-xs-4
+	//- 				p#footer-text.footer-text Jeremy Levy | 2016
+	//- 			div.col-xs-8
+	//- 				div.social-buttons-bar
+	//- 					a#linkedIn(class="btn", href="https://www.linkedin.com/in/jeremy-levy-9a3b9058", height="60")
+	//- 						svg(xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" height="40" id="svg9844" version="1.1" viewBox="0 0 60.000001 60.000001" width="40")
+	//- 							defs(id="defs9846")
+	//- 							g(id="layer1" transform="translate(0,-992.36216)")
+	//- 								g(id="g7191" style="fill:#007bb6;fill-opacity:1" transform="matrix(0.3,0,0,0.3,15,1007.3622)")
+	//- 									path( d="M 14.655,3.55 C 8.474,3.55 3.471,8.562 3.47,14.729 c 0,6.173 5.003,11.184 11.186,11.184 6.166,0 11.176,-5.011 11.176,-11.184 C 25.832,8.561 20.821,3.55 14.655,3.55 Z" id="path7193" style="fill:#007bb6;fill-opacity:1")
+	//- 									rect( height="62.054001" id="rect7195" style="fill:#007bb6;fill-opacity:1" width="19.287001" x="5.0079999" y="34.396")
+	//- 									path(d="m 73.395,32.853 c -9.382,0 -15.673,5.144 -18.248,10.022 l -0.258,0 0,-8.479 -18.498,0 -10e-4,0 0,62.053 19.27,0 0,-30.698 c 0,-8.093 1.541,-15.932 11.575,-15.932 9.89,0 10.022,9.256 10.022,16.452 l 0,30.177 19.273,0 0,-34.036 c 0,-16.707 -3.605,-29.559 -23.135,-29.559 z" id="path7197" style="fill:#007bb6;fill-opacity:1")
+	//- 					a#gitHub(class="btn", href="https://github.com/Jlevyd15")
+	//- 						svg(xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" height="40" id="svg9844" version="1.1" viewBox="0 0 60.000001 60.000001" width="40")
+	//- 							defs( id="defs9846")
+	//- 							g( id="layer1" transform="translate(0,-992.36216)")
+	//- 								g( id="g4195" transform="matrix(0.075,0,0,0.075,-0.5564827,897.71416)")
+	//- 									g(id="g4176" style="fill:#000000;fill-opacity:1" transform="translate(188.14676,1442.6992)")
+	//- 										g( id="g4136" style="fill:#000000;fill-opacity:1")
+	//- 											path(d="M 409.132,114.573 C 389.524,80.977 362.927,54.379 329.334,34.773 295.736,15.166 259.057,5.365 219.271,5.365 c -39.781,0 -76.472,9.804 -110.063,29.408 -33.596,19.605 -60.192,46.204 -79.8,79.8 C 9.803,148.168 0,184.854 0,224.63 c 0,47.78 13.94,90.745 41.827,128.906 27.884,38.164 63.906,64.572 108.063,79.227 5.14,0.954 8.945,0.283 11.419,-1.996 2.475,-2.282 3.711,-5.14 3.711,-8.562 0,-0.571 -0.049,-5.708 -0.144,-15.417 -0.098,-9.709 -0.144,-18.179 -0.144,-25.406 l -6.567,1.136 c -4.187,0.767 -9.469,1.092 -15.846,1 -6.374,-0.089 -12.991,-0.757 -19.842,-1.999 -6.854,-1.231 -13.229,-4.086 -19.13,-8.559 -5.898,-4.473 -10.085,-10.328 -12.56,-17.556 l -2.855,-6.57 c -1.903,-4.374 -4.899,-9.233 -8.992,-14.559 -4.093,-5.331 -8.232,-8.945 -12.419,-10.848 l -1.999,-1.431 c -1.332,-0.951 -2.568,-2.098 -3.711,-3.429 -1.142,-1.331 -1.997,-2.663 -2.568,-3.997 -0.572,-1.335 -0.098,-2.43 1.427,-3.289 1.525,-0.859 4.281,-1.276 8.28,-1.276 l 5.708,0.853 c 3.807,0.763 8.516,3.042 14.133,6.851 5.614,3.806 10.229,8.754 13.846,14.842 4.38,7.806 9.657,13.754 15.846,17.847 6.184,4.093 12.419,6.136 18.699,6.136 6.28,0 11.704,-0.476 16.274,-1.423 4.565,-0.952 8.848,-2.383 12.847,-4.285 1.713,-12.758 6.377,-22.559 13.988,-29.41 -10.848,-1.14 -20.601,-2.857 -29.264,-5.14 -8.658,-2.286 -17.605,-5.996 -26.835,-11.14 -9.235,-5.137 -16.896,-11.516 -22.985,-19.126 -6.09,-7.614 -11.088,-17.61 -14.987,-29.979 -3.901,-12.374 -5.852,-26.648 -5.852,-42.826 0,-23.035 7.52,-42.637 22.557,-58.817 -7.044,-17.318 -6.379,-36.732 1.997,-58.24 5.52,-1.715 13.706,-0.428 24.554,3.853 10.85,4.283 18.794,7.952 23.84,10.994 5.046,3.041 9.089,5.618 12.135,7.708 17.705,-4.947 35.976,-7.421 54.818,-7.421 18.842,0 37.117,2.474 54.823,7.421 l 10.849,-6.849 c 7.419,-4.57 16.18,-8.758 26.262,-12.565 10.088,-3.805 17.802,-4.853 23.134,-3.138 8.562,21.509 9.325,40.922 2.279,58.24 15.036,16.18 22.559,35.787 22.559,58.817 0,16.178 -1.958,30.497 -5.853,42.966 -3.9,12.471 -8.941,22.457 -15.125,29.979 -6.191,7.521 -13.901,13.85 -23.131,18.986 -9.232,5.14 -18.182,8.85 -26.84,11.136 -8.662,2.286 -18.415,4.004 -29.263,5.146 9.894,8.562 14.842,22.077 14.842,40.539 l 0,60.237 c 0,3.422 1.19,6.279 3.572,8.562 2.379,2.279 6.136,2.95 11.276,1.995 44.163,-14.653 80.185,-41.062 108.068,-79.226 27.88,-38.161 41.825,-81.126 41.825,-128.906 -0.01,-39.771 -9.818,-76.454 -29.414,-110.049 z" id="path4138" style="fill:#000000;fill-opacity:1")
+	//- 					a(class="btn", href="/contact")
+	//- 						span(class="glyphicon glyphicon-envelope", aria-hidden="true")
