@@ -3,14 +3,22 @@ $(document).ready(function(){
 	enabledDisableCompareBtn();
 });
 
+
+/* ----------- some UI stuff (smooth scrolling bookmarks) ---------------- */
 $("#section-two > div.center-column.down-arrow > a").click(function(){
-    	$('html, body').animate({
-        	scrollTop: $("#section-two").offset().top
-    	}, 2000);
-	});	
+	$('html, body').animate({
+    	scrollTop: $("#section-two").offset().top
+	}, 500);
+});	
+
+$("#section-three > div.center-column.down-arrow > a").click(function(){
+  $('html, body').animate({
+      scrollTop: $("#section-three").offset().top
+  }, 500);
+});
 
 
-/* --------- compare page ---------- */
+/* --------------------- compare page -------------------------- */
 
 //Dynamically add a new column to the table
 $('#add').click(function(){
@@ -29,34 +37,27 @@ $('#add').click(function(){
   }
 });
 
-//remove the column that user clicks
+//Remove from compare table - removes the entire column when user clicks the X button
 $(document).on('click',".close", function(){
   var closeIndex = $(this).index(".close");
   closeIndex++;
-  console.log(closeIndex);
+  //console.log(closeIndex);
   if($(".close").length > 2){
   //handle the first close action to skip feature td cells
   $("th:nth-of-type(" + closeIndex + ")").remove();
 	  if(closeIndex === 1) {
 	  	closeIndex = 2;
-	  	console.log($("tr td:nth-of-type(" + closeIndex + ")"));
+	  	//console.log($("tr td:nth-of-type(" + closeIndex + ")"));
 	  	$("tr td:nth-of-type(" + closeIndex + ")").remove();
 	  } else {
 	  	$("tr td:nth-of-type(" + closeIndex + ")").remove();
 	  }
   }else{
+    //custom alert window??, jQuery UI???
     alert("Cannot compare less than two");
   }
 });
 
-
-/* $('.close').click(function(){
-  var closeIndex = $(this).index("span.close");
-  closeIndex++;
-  console.log(closeIndex);
-  $("th:nth-of-type(" + closeIndex + ")", "document td:nth-of-type(" + closeIndex + ")").remove();
-  console.log($("th:nth-of-type(" + closeIndex + ")" + " " + "td:nth-of-type(" + closeIndex + ")"));
-}); */
 
 /*----------------------------------------------- menu slider ------------------------------------*/
 
@@ -71,19 +72,21 @@ $('#openBtn').click(function(e){
       $("#openBtn").hide();
       $("#closeBtn").show();
       $('#slide-nav').toggleClass("menu-container menu-container-active");
-  
-  $(document).click(function(e) { //set event handler for click function and capture event param 
-        if(e.target.id !== 'openBtn' //we want to toggle(close) the slide menu for any event not related to slide menu
-          && e.target.tagName !== 'BUTTON' && e.target.tagName !== 'svg' && e.target.tagName !== 'rect' && e.target.tagName !== 'line' && e.target.tagName !== 'IMG'){ // don't close the slide menu for events: menuBtn, form, INPUT & BUTTON
-          $('#slide-nav').removeClass("menu-container menu-container-active").addClass("menu-container");
-          $("#closeBtn").hide();
-          $("#openBtn").show();
-        }
-    });
+
+//this is allow user to click outside of the slider window to close it. User can also close clicking the X
+$(document).click(function(e) { //set event handler for click function and capture event param 
+    if(e.target.id !== 'openBtn' //we want to toggle(close) the slide menu for any event not related to slide menu
+      && e.target.tagName !== 'BUTTON' && e.target.tagName !== 'svg' && e.target.tagName !== 'rect' && e.target.tagName !== 'line' && e.target.tagName !== 'IMG'){ // don't close the slide menu for events: menuBtn, form, INPUT & BUTTON
+      $('#slide-nav').removeClass("menu-container menu-container-active").addClass("menu-container");
+      $("#closeBtn").hide();
+      $("#openBtn").show();
+    }
+  });
 });
 
-var ESC_KEYCODE = 27;
+//this will allow user to use esc key to close the menu slider
 $(document).keydown(function(event) {
+  var ESC_KEYCODE = 27;
   if (event.keyCode === ESC_KEYCODE && $('#slide-nav').attr('class', 'menu-container-active')) {
     $('#slide-nav').toggleClass("menu-container menu-container-active");
     $("#closeBtn").hide();
@@ -91,42 +94,42 @@ $(document).keydown(function(event) {
   }
 });
 
-/*----------------------------------------------- End menu slider ------------------------------------*/
+/*----------------------------- End menu slider ------------------------------------*/
 
-/*$('#menuBtn').click(function() {
-  $('#slide-nav').toggleClass("menu-container menu-container-active");
-});
-/*$("body").click(function(e) {
-	if ($('#slide-nav').attr('class', 'menu-container-active')) {
-		$('#slide-nav').toggleClass("menu-container menu-container-active");
-		console.log('slide open');
-    	if(e.target.class !=="nav-bar") {
-      		$(".nav-bar").hide();
-		}
-	}
-  });*/
+/* --------------------------------- LIST PAGE --------------------- */
 
-/* --------------------LIST PAGE --------------------- */
+//maybe these shouldn't be in global namespace 
+var restoredSession;
 
 var srvObj = {
   count: 0, 
   selSrv: []
 };
 
-var restoredSession;
-
 function setSessionObject(obj){
   return sessionStorage.setItem('session', JSON.stringify(obj));
-}
+};
 
 function getSessionObj(){
   return restoredSession = JSON.parse(sessionStorage.getItem('session'));
+};
+
+//this will show the count next to the compare button
+function showCompareCount(){
+  if(srvObj.count > 1){
+    $('#compareCounter').show().text(srvObj.count);
+  }else{
+    $('#compareCounter').hide();
+  }
 }
 
+//this will check to see if the selected services is 2 or more then enable the compare button
 function enabledDisableCompareBtn(){
+  showCompareCount();
   if(srvObj.selSrv.length > 1){
     $('#goToComparePage').prop('disabled',false);
   }else
+    //$('#compareCounter').hide();
     $('#goToComparePage').prop('disabled',true);
 };
 
@@ -139,19 +142,26 @@ function addRemoveService(serviceName){
   }else{
     srvObj.selSrv.push(serviceName);
   }
-    console.log(srvObj.selSrv);
+    //console.log(srvObj.selSrv);
     //srvObj.selSrv = serviceList;
     setSessionObject(srvObj);
     return srvObj;
 };
 
+//this will handle the user change event on checkboxes
+//it will set the count property on the object (srvObj)
+//it will call enableDisableCompareBtn function to check if the compare button should be enabled
+//it will also call function addRemoveService to appropriately add/remove the selected service from selSrv array in object (srvObj)
 $('input[type=checkbox]').on('change', function(){
   //console.log(srvObj.selSrv.length+1);
 	if($(this).is(':checked')){
+    //user checked a box
 		srvObj.count++;
     addRemoveService(this.parentNode.id);
     enabledDisableCompareBtn();
+    //this part controls how many checkboxes user can select
 		if(srvObj.selSrv.length < 5){
+      //set a border around the service box to notify user it has been selected
 			$(this).closest('.box').css('border', '3px solid rgba(0, 188, 212, .8)');//;  rgba(55, 66, 75, .7)
 		}else{
 			srvObj.count--;
@@ -192,7 +202,8 @@ $('#goToComparePage').on('click', function(){
 //var sessData = sessionStorage.getItem('sessObj');
 $(window).on("load",function(){
   if(this.location.pathname === '/list'){
-    console.log("Session Data is " + JSON.stringify(getSessionObj()));
+    //console.log("Session Data is " + JSON.stringify(getSessionObj()));
+    JSON.stringify(getSessionObj());
     if(restoredSession && restoredSession.selSrv[0]){
       console.log("session is restored");
       srvObj = restoredSession;
